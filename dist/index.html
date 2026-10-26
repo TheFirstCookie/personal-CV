@@ -12,12 +12,13 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" href="/assets/tiny5-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/motion.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="container header-inner">
     <a class="brand" href="#home" aria-label="Daniel Mihaila, home"><span class="brand-mark" aria-hidden="true">dm<span>.</span></span><span>Daniel Mihaila</span></a>
-    <nav aria-label="Main navigation"><a href="#about"><span>01</span> About</a><a href="#education"><span>02</span> Education</a><a href="#skills"><span>03</span> Skills</a><a href="#contact"><span>04</span> Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#projects"><span>01</span> Work</a><a href="#about"><span>02</span> About</a><a href="#education"><span>03</span> Education</a><a href="#skills"><span>04</span> Skills</a><a href="#contact"><span>05</span> Contact</a></nav>
     <a class="header-cv" href="/assets/Daniel-Mihaila-CV.pdf" download>CV <span aria-hidden="true">↓</span><span class="sr-only"> — download PDF</span></a>
   </div></header>
   <main id="main"><section class="hero" id="home" aria-labelledby="hero-title">
@@ -27,39 +28,97 @@
         <h1 id="hero-title">Daniel<span>Mihaila<span class="name-period">.</span></span></h1>
         <p class="hero-role">Developer <span aria-hidden="true">/</span> IT student</p>
         <p class="hero-intro">An IT student at the Technical University of Moldova, looking for opportunities to grow as a developer.</p>
-        <div class="actions"><a class="button button-primary" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a><a class="button button-secondary" href="/assets/Daniel-Mihaila-CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a></div>
+        <div class="actions"><a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="https://github.com/TheFirstCookie" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="window-top"><span><i></i><i></i><i></i></span><span>CHISINAU, MD</span><span>01</span></div>
-        <img src="/assets/workspace.svg" width="480" height="440" alt="" fetchpriority="high">
-        <div class="window-bottom"><span>LEARNING. BUILDING. GROWING.</span><span class="pixel-star">✳</span></div>
+      <div class="hero-visual motion-scene" data-motion-scene>
+        <div class="window-top" aria-hidden="true"><span><i></i><i></i><i></i></span><span>AFTER HOURS / CHIȘINĂU</span><span>01</span></div>
+        <svg class="night-city" xmlns="http://www.w3.org/2000/svg" width="600" height="520" viewBox="0 0 600 520" fill="none" aria-hidden="true" shape-rendering="crispEdges">
+    <defs><linearGradient id="night-sky" x2="0" y2="1"><stop stop-color="#111a32"/><stop offset=".65" stop-color="#333048"/><stop offset="1" stop-color="#a46147"/></linearGradient><linearGradient id="city-haze" x2="0" y2="1"><stop stop-color="#efab73" stop-opacity="0"/><stop offset="1" stop-color="#efab73" stop-opacity=".12"/></linearGradient></defs>
+    <path fill="url(#night-sky)" d="M0 0h600v520H0z"/>
+    <g fill="#cbd7e5" opacity=".55"><path d="M38 55h3v3h-3zm71 58h2v2h-2zm83-77h2v2h-2zm62 64h3v3h-3zm-98 63h2v2h-2zm180-123h2v2h-2zm193 57h3v3h-3zm-48 63h2v2h-2zm-444 44h2v2h-2zm271-34h2v2h-2z"/></g>
+    <g class="city-stars" fill="#e7d4ad"><path d="M89 43h3v9h-3zm-3 3h9v3h-9zm202 16h3v9h-3zm-3 3h9v3h-9zm228-44h3v9h-3zm-3 3h9v3h-9zm34 164h3v9h-3zm-3 3h9v3h-9z"/></g>
+    <path fill="#f3c68e" d="M412 56h40v8h16v8h8v16h8v40h-8v16h-8v8h-16v8h-40v-8h-16v-8h-8v-16h-8V88h8V72h8v-8h16z"/>
+    <path fill="#dbac79" d="M400 120h16v16h-16zm44-48h16v8h-16zm0 56h24v8h-24z"/>
+    <g class="city-cloud city-cloud-far" fill="#49516a" opacity=".45"><path d="M310 166h32v-8h56v8h32v8h32v8H294v-8h16zM24 99h24v-8h48v8h40v8H16v-8z"/></g>
+    <g class="city-cloud city-cloud-near" fill="#747185" opacity=".35"><path d="M386 112h40v-8h64v8h32v8h32v8H370v-8h16zM140 202h40v-8h48v8h48v8H124v-8h16z"/></g>
+    <path fill="#343445" d="M0 280h20v-40h32v32h24v-56h32v-16h8v16h24v64h24v-40h40v-24h24v-32h8v32h24v48h32v-32h40v-48h8v48h32v48h24v-72h40v32h32v-48h40v72h32v-40h40v56h40v-88h32v72h20v-32h28v224H0z"/>
+    <path fill="url(#city-haze)" d="M0 230h600v100H0z"/>
+    <path fill="#202735" d="M0 314h32V208h88v106h32v-32h60v-58h64v104h44v-60h80v48h32V190h72v132h40v-44h56v242H0z"/>
+    <path fill="#4a4650" d="M32 208h88v5H32zm180 16h64v5h-64zm220-34h72v5h-72z"/>
+    <path fill="#202735" d="M456 174h24v16h-24zm10-32h4v32h-4z"/>
+    <rect x="62" y="228" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="78" y="228" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="94" y="228" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="46" y="249" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="78" y="249" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="94" y="249" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="46" y="270" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="62" y="270" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="94" y="270" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="46" y="291" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="62" y="291" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="78" y="291" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="46" y="312" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="62" y="312" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="78" y="312" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="94" y="312" width="5" height="8" fill="#e9b87d" opacity=".8"/>
+    <rect x="224" y="243" width="5" height="8" fill="#a9c1c9" opacity=".8"/><rect x="240" y="243" width="5" height="8" fill="#a9c1c9" opacity=".8"/><rect x="224" y="264" width="5" height="8" fill="#a9c1c9" opacity=".8"/><rect x="240" y="264" width="5" height="8" fill="#a9c1c9" opacity=".8"/><rect x="256" y="264" width="5" height="8" fill="#a9c1c9" opacity=".25"/><rect x="224" y="285" width="5" height="8" fill="#a9c1c9" opacity=".8"/><rect x="240" y="285" width="5" height="8" fill="#a9c1c9" opacity=".25"/><rect x="256" y="285" width="5" height="8" fill="#a9c1c9" opacity=".8"/>
+    <rect x="446" y="211" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="462" y="211" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="478" y="211" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="462" y="232" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="478" y="232" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="446" y="253" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="478" y="253" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="446" y="274" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="462" y="274" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="446" y="295" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="462" y="295" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="478" y="295" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="446" y="316" width="5" height="8" fill="#e9b87d" opacity=".8"/><rect x="462" y="316" width="5" height="8" fill="#e9b87d" opacity=".25"/><rect x="478" y="316" width="5" height="8" fill="#e9b87d" opacity=".8"/>
+    <g class="city-lights"><rect x="336" y="284" width="5" height="8" fill="#efbf8f" opacity=".8"/><rect x="368" y="284" width="5" height="8" fill="#efbf8f" opacity=".8"/><rect x="336" y="305" width="5" height="8" fill="#efbf8f" opacity=".25"/><rect x="352" y="305" width="5" height="8" fill="#efbf8f" opacity=".8"/><rect x="336" y="326" width="5" height="8" fill="#efbf8f" opacity=".8"/><rect x="352" y="326" width="5" height="8" fill="#efbf8f" opacity=".8"/><rect x="368" y="326" width="5" height="8" fill="#efbf8f" opacity=".8"/></g>
+    <path fill="#131c26" d="M0 348h600v15H0z"/><path fill="#776b65" d="M0 348h600v3H0z"/>
+    <path stroke="#333a44" stroke-width="3" d="M18 353v41m88-41v41m88-41v41m88-41v41m88-41v41m88-41v41m88-41v41"/>
+    <g class="city-train"><path fill="#a9afa2" d="M0 329h96v4h8v12H0z"/><path fill="#edc486" d="M8 333h10v6H8zm17 0h10v6H25zm17 0h10v6H42zm17 0h10v6H59zm17 0h10v6H76z"/><path fill="#e9ad76" d="M100 338h4v4h-4z"/><path fill="#242936" d="M0 343h104v3H0z"/></g>
+    <path fill="#0f171e" d="M0 400h38v-33h100v33h48v-16h110v32h48v-40h92v24h36v-42h128v162H0z"/>
+    <path fill="#303937" d="M38 367h100v6H38zm148 17h110v6H186zm158-8h92v6h-92zm128-18h128v6H472z"/>
+    <path fill="#f1b277" d="M57 395h12v18H57zm30 0h12v18H87zm-30 39h12v18H57zm30 0h12v18H87zm115-21h18v8h-18zm26 0h18v8h-18zm26 0h18v8h-18z" opacity=".75"/>
+    <path fill="#111b1b" d="M454 450h146v70H454z"/>
+    <path stroke="#43504a" stroke-width="4" d="M474 395h94v39h-94z"/>
+    <g fill="#ffab68"><path d="M492 406h5v5h-5zm-5 5h5v5h-5zm5 5h5v5h-5zm51-10h5v5h-5zm5 5h5v5h-5zm-5 5h5v5h-5zM521 403h5v7h-5zm-5 7h5v7h-5zm-5 7h5v7h-5z"/></g>
+    <path stroke="#43504a" stroke-width="3" d="M484 435v15m74-15v15"/>
+    <path fill="#0a1116" d="M0 480h600v40H0z"/><path fill="#42453b" d="M0 478h600v5H0z"/>
+    <path fill="#70715a" d="M330 424h5v54h-5z"/><path fill="#e8bc83" d="M320 419h25v7h-25z"/>
+    <path fill="#b49069" d="M383 450h10v10h-10z"/><path fill="#859281" d="M379 460h18v13h-18z"/><path fill="#303b3b" d="M381 473h6v7h-6zm10 0h6v7h-6z"/>
+    <path fill="#72573f" d="M45 494h60v2H45zm170 12h33v2h-33zm240-11h73v2h-73z"/>
+  </svg>
+        <div class="window-bottom"><span aria-hidden="true">SOMEWHERE BETWEEN IDEAS & CODE.</span><button class="motion-toggle" type="button" aria-label="Animations" aria-pressed="true" hidden><span data-motion-label>Motion on</span><span aria-hidden="true" data-motion-icon>Ⅱ</span></button></div>
       </div>
     </div>
-    <div class="container hero-foot"><span>Based in Chișinău, Moldova</span><a href="#about">A little about me <span aria-hidden="true">↓</span></a></div>
+    <div class="container hero-foot"><span>Based in Chișinău, Moldova</span><a href="/assets/Daniel-Mihaila-CV.pdf" download>Download my CV <span aria-hidden="true">↓</span></a></div>
   </section>
+<section class="section projects-section" id="projects" aria-labelledby="projects-title"><div class="container">
+    <p class="eyebrow"><span>01</span> / Selected projects</p>
+    <div class="section-heading"><div><h2 id="projects-title">On the shelf<span class="accent">.</span></h2><p class="projects-intro">Two websites. Ready to explore.</p></div><a class="text-link" href="https://github.com/TheFirstCookie" target="_blank" rel="noopener noreferrer">More on GitHub <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+    <div class="project-grid"><article class="project project-avangard" aria-labelledby="project-avangard-title">
+      <a class="project-art" href="https://avangard-codex-test.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit Avangard Autocheck (opens in a new tab)">
+        <span class="shelf-number" aria-hidden="true">VOL. 01</span>
+        <span class="cd-assembly" aria-hidden="true">
+          <span class="compact-disc"><span class="disc-print">AVANGARD<span>DM / WEB COLLECTION</span></span><span class="disc-hub"></span></span>
+          <span class="jewel-case"><span class="case-spine">DM — 001</span><span class="case-cover"><span class="cover-topline"><span>PERSONAL PROJECT</span><span>01</span></span><span class="cover-title">AVANGARD<span>AUTOCHECK</span></span><img src="/assets/projects/avangard.jpg" width="1120" height="760" alt="" loading="lazy" decoding="async"><span class="cover-bottomline"><span>INSPECT. KNOW. DRIVE.</span><span>↗</span></span></span></span>
+        </span><span class="project-shelf" aria-hidden="true"></span>
+        <span class="project-launch" aria-hidden="true">Open project ↗</span>
+      </a>
+      <div class="project-details"><p class="overline">Automotive · Service website</p><h3 id="project-avangard-title">Avangard Autocheck</h3><p class="project-description">A website for independent vehicle inspections, with service packages, an interactive inspection overview, and an appointment enquiry flow.</p><ul class="project-tags" aria-label="Project features"><li>Vehicle inspections</li><li>Service booking</li></ul><div class="project-links"><a href="https://avangard-codex-test.vercel.app/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a href="https://github.com/TheFirstCookie/avangard-codex-test" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div></div>
+    </article><article class="project project-forgefit" aria-labelledby="project-forgefit-title">
+      <a class="project-art" href="https://gymshop-three.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Visit ForgeFit Supply (opens in a new tab)">
+        <span class="shelf-number" aria-hidden="true">VOL. 02</span>
+        <span class="cd-assembly" aria-hidden="true">
+          <span class="compact-disc"><span class="disc-print">FORGEFIT<span>DM / WEB COLLECTION</span></span><span class="disc-hub"></span></span>
+          <span class="jewel-case"><span class="case-spine">DM — 002</span><span class="case-cover"><span class="cover-topline"><span>PERSONAL PROJECT</span><span>02</span></span><span class="cover-title">FORGEFIT<span>SUPPLY</span></span><img src="/assets/projects/forgefit.jpg" width="1120" height="760" alt="" loading="lazy" decoding="async"><span class="cover-bottomline"><span>BUILT FOR THE ROOM.</span><span>↗</span></span></span></span>
+        </span><span class="project-shelf" aria-hidden="true"></span>
+        <span class="project-launch" aria-hidden="true">Open project ↗</span>
+      </a>
+      <div class="project-details"><p class="overline">Fitness · Online store</p><h3 id="project-forgefit-title">ForgeFit Supply</h3><p class="project-description">A gym equipment storefront with product search, category and brand filters, a shopping cart, and customer accounts.</p><ul class="project-tags" aria-label="Project features"><li>Product catalog</li><li>Shopping cart</li></ul><div class="project-links"><a href="https://gymshop-three.vercel.app/" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a><a href="https://github.com/TheFirstCookie/practica_gym_shop" target="_blank" rel="noopener noreferrer">Source code <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div></div>
+    </article></div>
+  </div></section>
 <section class="section container" id="about" aria-labelledby="about-title">
-    <p class="eyebrow"><span>01</span> / About me</p>
+    <p class="eyebrow"><span>02</span> / About me</p>
     <div class="about-grid">
       <div><h2 id="about-title">At the start.<br><span class="muted-heading">Ready for what’s next.</span></h2><p class="section-copy">I’m studying Information Technology at the Technical University of Moldova, within the Faculty of Computers, Informatics and Microelectronics. I’m looking for a part-time role in IT and tech, with a flexible schedule and an on-site or hybrid setup.</p></div>
       <dl class="facts"><div><dt>Based in</dt><dd>Chișinău, Moldova</dd></div><div><dt>Age</dt><dd>21 · Male</dd></div><div><dt>Driving licence</dt><dd>Category B</dd></div><div><dt>Work preference</dt><dd>Part-time · Flexible</dd></div><div><dt>Workplace</dt><dd>On-site · Hybrid</dd></div></dl>
     </div>
   </section>
 <section class="section education-section" id="education" aria-labelledby="education-title"><div class="container">
-    <p class="eyebrow"><span>02</span> / Education & courses</p>
+    <p class="eyebrow"><span>03</span> / Education & courses</p>
     <div class="section-heading"><h2 id="education-title">The story so far<span class="accent">.</span></h2><span class="small-note">A foundation in IT</span></div>
     <div class="education-entry"><div class="timeline-label"><span class="status-dot" aria-hidden="true"></span>In progress</div><div class="education-body"><p class="overline">Higher education · Currently studying</p><h3>Technical University of Moldova</h3><p class="qualification">Information Technology</p><p class="muted">Faculty of Computers, Informatics and Microelectronics</p></div><span class="entry-mark" aria-hidden="true">↗</span></div>
     <h3 class="courses-heading">Courses & training</h3>
     <div class="course-list"><article class="course"><p class="course-year">2023</p><div><h4>Fundamentele IT</h4><p class="course-subtitle">IT fundamentals</p><p class="course-provider">Orange Digital Center</p></div><span class="completed">Completed <span aria-hidden="true">✓</span></span></article><article class="course"><p class="course-year">2019</p><div><h4>Summer School 2019</h4><p class="course-provider">Fundația Youth Development for Innovation</p></div><span class="completed">Completed <span aria-hidden="true">✓</span></span></article></div>
   </div></section>
 <section class="section container" id="skills" aria-labelledby="skills-title">
-    <p class="eyebrow"><span>03</span> / Skills & languages</p>
+    <p class="eyebrow"><span>04</span> / Skills & languages</p>
     <h2 id="skills-title">What I bring<span class="accent">.</span></h2>
     <div class="skills-grid"><div><h3 class="list-heading">Skills</h3><ul class="skill-list"><li><span class="list-index" aria-hidden="true">01</span>Information technology<span class="skill-plus" aria-hidden="true">+</span></li><li><span class="list-index" aria-hidden="true">02</span>Teamwork<span class="skill-plus" aria-hidden="true">+</span></li><li><span class="list-index" aria-hidden="true">03</span>Punctuality<span class="skill-plus" aria-hidden="true">+</span></li><li><span class="list-index" aria-hidden="true">04</span>Self-discipline<span class="skill-plus" aria-hidden="true">+</span></li></ul></div>
     <div><h3 class="list-heading">Languages</h3><ul class="language-list"><li><span class="language-code" aria-hidden="true">RO</span><span>Romanian</span><span class="language-level">Native</span></li><li><span class="language-code" aria-hidden="true">EN</span><span>English</span><span class="language-level">Fluent</span></li><li><span class="language-code" aria-hidden="true">RU</span><span>Russian</span><span class="language-level">Elementary</span></li></ul></div></div>
   </section>
 <section class="contact-section" id="contact" aria-labelledby="contact-title"><div class="container">
-    <p class="eyebrow"><span>04</span> / Get in touch</p>
+    <p class="eyebrow"><span>05</span> / Get in touch</p>
     <div class="contact-grid"><div><h2 id="contact-title">Let’s start<br>a conversation<span>.</span></h2><p>Have a part-time opportunity in IT?<br>I’d be happy to hear from you.</p></div><div class="contact-links"><a class="email-link" href="mailto:daniel2005u@gmail.com"><span class="overline">Email me</span><span>daniel2005u@gmail.com <span aria-hidden="true">↗</span></span></a><a class="phone-link" href="tel:+37368501019">+373 685 01 019 <span aria-hidden="true">↗</span></a><p>Chișinău, Moldova <span aria-hidden="true">·</span> On-site or hybrid</p></div></div>
+    <a class="contact-github" href="https://github.com/TheFirstCookie" target="_blank" rel="noopener noreferrer">Find me on GitHub <span>@TheFirstCookie <span aria-hidden="true">↗</span></span><span class="sr-only"> (opens in a new tab)</span></a>
   </div></section></main>
   <footer class="site-footer container"><a class="footer-brand" href="#home">dm<span>.</span></a><p>© 2026 Daniel Mihaila</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body>

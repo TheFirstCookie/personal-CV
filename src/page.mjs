@@ -1,5 +1,6 @@
 import { escapeHtml as e } from './html.mjs';
 import { hero } from './sections/hero.mjs';
+import { projects } from './sections/projects.mjs';
 import { about } from './sections/about.mjs';
 import { education } from './sections/education.mjs';
 import { skills } from './sections/skills.mjs';
@@ -21,15 +22,16 @@ export function page(cv) {
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" href="/assets/tiny5-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/motion.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="container header-inner">
     <a class="brand" href="#home" aria-label="Daniel Mihaila, home"><span class="brand-mark" aria-hidden="true">dm<span>.</span></span><span>Daniel Mihaila</span></a>
-    <nav aria-label="Main navigation"><a href="#about"><span>01</span> About</a><a href="#education"><span>02</span> Education</a><a href="#skills"><span>03</span> Skills</a><a href="#contact"><span>04</span> Contact</a></nav>
+    <nav aria-label="Main navigation"><a href="#projects"><span>01</span> Work</a><a href="#about"><span>02</span> About</a><a href="#education"><span>03</span> Education</a><a href="#skills"><span>04</span> Skills</a><a href="#contact"><span>05</span> Contact</a></nav>
     <a class="header-cv" href="${e(cv.pdf)}" download>CV <span aria-hidden="true">↓</span><span class="sr-only"> — download PDF</span></a>
   </div></header>
-  <main id="main">${[hero, about, education, skills, contact].map(section => section(cv)).join('\n')}</main>
+  <main id="main">${[hero, projects, about, education, skills, contact].map(section => section(cv)).join('\n')}</main>
   <footer class="site-footer container"><a class="footer-brand" href="#home">dm<span>.</span></a><p>© ${new Date().getFullYear()} ${e(cv.name)}</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body>
 </html>`;
