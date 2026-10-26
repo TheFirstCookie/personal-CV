@@ -7,7 +7,7 @@ import { page } from '../src/page.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = join(root, 'dist');
 await mkdir(output, { recursive: true });
-const styles = await Promise.all(['tokens', 'base', 'components', 'sections', 'projects', 'motion'].map(name => readFile(join(root, `src/styles/${name}.css`), 'utf8')));
+const styles = await Promise.all(['tokens', 'base', 'components', 'sections', 'projects', 'motion', 'worlds'].map(name => readFile(join(root, `src/styles/${name}.css`), 'utf8')));
 await writeFile(join(output, 'styles.css'), styles.join('\n'));
 await writeFile(join(output, 'index.html'), page(cv));
 await cp(join(root, 'public'), output, { recursive: true });

@@ -1,7 +1,7 @@
 import { escapeHtml as e, sectionLabel, arrow } from '../html.mjs';
 
 export function projects(cv) {
-  return `<section class="section projects-section" id="projects" aria-labelledby="projects-title"><div class="container">
+  return `<section class="section projects-section motion-scene" data-motion-scene id="projects" aria-labelledby="projects-title"><div class="shelf-atmosphere" aria-hidden="true"><div class="shelf-grid ambient"></div></div><div class="container">
     ${sectionLabel('01', 'Selected projects')}
     <div class="section-heading"><div><h2 id="projects-title">On the shelf<span class="accent">.</span></h2><p class="projects-intro">Two websites. Ready to explore.</p></div><a class="text-link" href="${e(cv.github)}" target="_blank" rel="noopener noreferrer">More on GitHub ${arrow}<span class="sr-only"> (opens in a new tab)</span></a></div>
     <div class="project-grid">${cv.projects.map((project, index) => `<article class="project project-${e(project.id)}" aria-labelledby="project-${e(project.id)}-title">

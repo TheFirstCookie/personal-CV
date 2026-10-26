@@ -4,12 +4,11 @@ export const cv = {
   role: 'Developer',
   location: 'Chișinău, Moldova',
   email: 'daniel2005u@gmail.com',
-  phone: '+373 685 01 019',
-  phoneHref: '+37368501019',
   github: 'https://github.com/TheFirstCookie',
+  linkedin: 'https://www.linkedin.com/in/daniel-mihaila-b7008b36b/',
   pdf: '/assets/Daniel-Mihaila-CV.pdf',
   introduction: 'An IT student at the Technical University of Moldova, looking for opportunities to grow as a developer.',
-  about: 'I’m studying Information Technology at the Technical University of Moldova, within the Faculty of Computers, Informatics and Microelectronics. I’m looking for a part-time role in IT and tech, with a flexible schedule and an on-site or hybrid setup.',
+  about: 'I’m studying Information Technology at the Technical University of Moldova, within the Faculty of Computers, Informatics and Microelectronics. I’m looking for a part-time role in IT and tech, with a flexible schedule.',
   projects: [
     {
       id: 'avangard',
@@ -39,7 +38,6 @@ export const cv = {
     ['Age', '21 · Male'],
     ['Driving licence', 'Category B'],
     ['Work preference', 'Part-time · Flexible'],
-    ['Workplace', 'On-site · Hybrid'],
   ],
   education: {
     institution: 'Technical University of Moldova',

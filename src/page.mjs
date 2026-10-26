@@ -31,7 +31,7 @@ export function page(cv) {
     <nav aria-label="Main navigation"><a href="#projects"><span>01</span> Work</a><a href="#about"><span>02</span> About</a><a href="#education"><span>03</span> Education</a><a href="#skills"><span>04</span> Skills</a><a href="#contact"><span>05</span> Contact</a></nav>
     <a class="header-cv" href="${e(cv.pdf)}" download>CV <span aria-hidden="true">↓</span><span class="sr-only"> — download PDF</span></a>
   </div></header>
-  <main id="main">${[hero, projects, about, education, skills, contact].map(section => section(cv)).join('\n')}</main>
+  <main id="main">${hero(cv)}<div class="signal-strip motion-scene" data-motion-scene aria-hidden="true"><div class="signal-track ambient"><span>CODE / CURIOSITY / CHIȘINĂU / BUILD / LEARN / REPEAT / </span><span>CODE / CURIOSITY / CHIȘINĂU / BUILD / LEARN / REPEAT / </span></div></div>${[projects, about, education, skills, contact].map(section => section(cv)).join('\n')}</main>
   <footer class="site-footer container"><a class="footer-brand" href="#home">dm<span>.</span></a><p>© ${new Date().getFullYear()} ${e(cv.name)}</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body>
 </html>`;

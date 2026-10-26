@@ -38,9 +38,6 @@
 .project-links a { display: inline-flex; align-items: center; gap: 20px; font-family: var(--mono); font-size: 11px; padding-block: 12px; text-decoration: none; }
 .project-links a:first-child { color: var(--project-color); }
 .project-links a:hover { text-decoration: underline; }
-.contact-github { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; max-width: 450px; margin-top: 35px; padding-top: 19px; border-top: 1px solid #b96b35; font-family: var(--mono); font-size: 11px; text-decoration: none; }
-.contact-github:hover { text-decoration: underline; }
-.contact-github > span > span { margin-left: 15px; }
 @media (hover: hover) {
   .project-art:hover .cd-assembly { transform: translateY(-10px) rotate(-2deg) rotateY(0deg); }
   .project-art:hover .compact-disc { transform: translateX(25%) rotate(22deg); }

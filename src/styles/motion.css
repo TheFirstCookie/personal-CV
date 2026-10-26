@@ -1,10 +1,5 @@
-.hero { position: relative; isolation: isolate; background: radial-gradient(ellipse at 80% 35%, #27303c55, transparent 65%); }
-.hero-visual { position: relative; transform: rotate(1.5deg); background: #171e23; border-color: #4a5051; box-shadow: 7px 9px 0 #080c0e, 17px 24px 0 #080c0e33; }
-.hero-visual::before, .hero-visual::after { content: ''; position: absolute; top: -11px; width: 58px; height: 23px; background: #777b6559; border: 1px solid #acac7c24; z-index: 1; transform: rotate(-19deg); pointer-events: none; }
-.hero-visual::before { left: 22px; } .hero-visual::after { right: 20px; transform: rotate(24deg); }
-.hero-visual .window-top, .hero-visual .window-bottom { border-color: #41494b; }
+.hero { position: relative; isolation: isolate; }
 .night-city { display: block; width: 100%; height: auto; overflow: hidden; }
-.hero-visual .window-bottom { flex-wrap: wrap; gap: 4px 12px; min-height: 44px; padding-block: 2px; font-size: 8px; }
 .motion-toggle { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 0 6px 6px; background: transparent; border: 0; color: var(--accent); font-family: var(--mono); font-size: 9px; cursor: pointer; }
 [hidden] { display: none !important; }
 .motion-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -26,8 +21,7 @@ html[data-motion="off"] .project-forgefit .project-art:is(:hover, :focus-visible
 html[data-motion="off"] .project-art:is(:hover, :focus-visible) .compact-disc { transform: translateX(7%); }
 @media (max-width: 540px) {
   nav { gap: 3px; } nav a { gap: 4px; font-size: 9px; } nav a span { font-size: 8px; }
-  .hero-visual { transform: rotate(1deg); width: calc(100% - 12px); }
-  .hero-visual .window-bottom { font-size: 7px; } .motion-toggle { font-size: 8px; }
+  .motion-toggle { font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation: none !important; }
@@ -36,4 +30,4 @@ html[data-motion="off"] .project-art:is(:hover, :focus-visible) .compact-disc { 
   .project-forgefit .project-art:is(:hover, :focus-visible) .cd-assembly { transform: rotate(5deg) rotateY(-8deg); }
   .project-art:is(:hover, :focus-visible) .compact-disc { transform: translateX(7%); }
 }
-@media print { .hero { background: white; } .hero-visual { display: none; } }
+@media print { .hero { background: white; } }
