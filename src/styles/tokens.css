@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Tiny5;
+  src: url('/assets/tiny5-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #111210;
+  --surface: #181a16;
+  --text: #eeeee5;
+  --muted: #a4a69c;
+  --line: #35372e;
+  --accent: #ff9b54;
+  --lime: #c1d99a;
+  --pixel: Tiny5, 'Courier New', monospace;
+  --body: 'Segoe UI', Arial, sans-serif;
+  --mono: 'Cascadia Code', Consolas, 'Liberation Mono', monospace;
+  --max-width: 1200px;
+  --gutter: clamp(20px, 5vw, 72px);
+}
