@@ -7,8 +7,8 @@ export const cv = {
   github: 'https://github.com/TheFirstCookie',
   linkedin: 'https://www.linkedin.com/in/daniel-mihaila-b7008b36b/',
   pdf: '/assets/Daniel-Mihaila-CV.pdf',
-  introduction: 'Developer and IT student turning ideas into practical, user-friendly web experiences. Open to opportunities, with a preference for remote work.',
-  about: 'I’m an Information Technology student at the Technical University of Moldova who learns by turning ideas into working projects. My work includes a vehicle inspection website and a fitness equipment storefront, with a focus on responsive layouts, clear navigation, and useful interactive features.\n\nI enjoy breaking complex tasks into manageable steps, researching solutions, and refining the details that make a website easier to use. I bring curiosity, a structured approach to problem-solving, and a willingness to learn from feedback. I’m looking for an opportunity to contribute to meaningful projects, develop alongside experienced colleagues, and take on increasing responsibility. I prefer remote work.',
+  introduction: 'Developer and IT student turning ideas into practical, user-friendly web experiences. Open to opportunities.',
+  about: 'I’m an Information Technology student at the Technical University of Moldova who learns by turning ideas into working projects. My work includes a vehicle inspection website and a fitness equipment storefront, with a focus on responsive layouts, clear navigation, and useful interactive features.\n\nI enjoy breaking complex tasks into manageable steps, researching solutions, and refining the details that make a website easier to use. I bring curiosity, a structured approach to problem-solving, and a willingness to learn from feedback. I’m looking for an opportunity to contribute to meaningful projects, develop alongside experienced colleagues, and take on increasing responsibility.',
   projects: [
     {
       id: 'avangard',
@@ -37,7 +37,6 @@ export const cv = {
     ['Based in', 'Chișinău, Moldova'],
     ['Age', '21 · Male'],
     ['Driving licence', 'Category B'],
-    ['Work preference', 'Remote preferred'],
   ],
   education: {
     institution: 'Technical University of Moldova',

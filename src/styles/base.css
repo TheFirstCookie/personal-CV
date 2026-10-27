@@ -1,5 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-padding-top: 130px; }
+html { scroll-padding-top: 130px; scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.65; }
 ::selection { color: var(--bg); background: var(--accent); }
 a { color: inherit; text-underline-offset: 5px; }
