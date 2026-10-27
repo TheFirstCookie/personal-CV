@@ -12,7 +12,7 @@ export function hero(cv) {
         <p class="hero-intro">${e(cv.introduction)}</p>
         <div class="actions"><a class="button button-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="button button-secondary" href="${e(cv.linkedin)}" target="_blank" rel="noopener noreferrer">LinkedIn ${arrow}<span class="sr-only"> (opens in a new tab)</span></a></div>
       </div>
-      <div class="world-caption"><span class="world-coordinates">47.01° N &nbsp; 28.86° E</span><span class="world-name" data-world-name>After hours</span><span class="world-hint">A little corner of my world.</span></div>
+      <div class="world-caption"><span class="world-coordinates">47.01° N &nbsp; 28.86° E</span><span class="world-name" data-world-name>After hours</span></div>
     </div>
     <div class="container hero-foot"><span>Based in ${e(cv.location)}</span><div class="scene-controls"><button class="scene-switch" type="button" hidden>Change scenery <span aria-hidden="true">↻</span></button><button class="motion-toggle" type="button" aria-label="Animations" aria-pressed="true" hidden><span data-motion-label>Motion on</span><span aria-hidden="true" data-motion-icon>Ⅱ</span></button></div></div>
     <p class="sr-only" data-world-announcement aria-live="polite"></p>

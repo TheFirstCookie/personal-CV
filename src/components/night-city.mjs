@@ -34,18 +34,18 @@ export function nightCity() {
 
     <path fill="#122431" d="M0 708h1600v92H0z"/>
     <g class="city-water" clip-path="url(#city-water-clip)">
-      <g class="city-reflections">${Array.from({length: 8}, (_, i) => {
+      <g class="city-reflections"><g fill="#bd996d" opacity=".2"><path d="M284 717h12v2h-12zm-4 12h20v2h-20zm7 13h9v2h-9z"/></g>${Array.from({length: 8}, (_, i) => {
         const x=786+i*105, shade=i%3 ? '#bd996d' : '#8eafb4';
         return '<g opacity=".26">'+Array.from({length: 5}, (_, j) => '<path fill="'+shade+'" d="M'+(x+(j%2?3:-4))+' '+(716+j*12)+'h'+(12+(i+j)%4*4)+'v2h-'+(12+(i+j)%4*4)+'z"/>').join('')+'</g>';
       }).join('')}</g>
-      <g class="city-ripples" stroke="#52717a" stroke-width="1" opacity=".3"><path d="M680 737h45m90 38h70m90-39h38m90 45h65m110-30h42m80 27h90m-115-60h29"/></g>
-      <g class="city-ferry"><path fill="#17202c" d="M-126 753h112l-10 9h-88z"/><path fill="#64828a" d="M-114 744h84v9h-84z"/><path fill="#b6b9a2" d="M-100 737h50v7h-50z"/><path fill="#d9be87" d="M-106 746h10v4h-10zm17 0h10v4h-10zm17 0h10v4h-10zm17 0h10v4h-10z"/><path fill="#d7ad76" d="M-16 751h3v2h-3z"/><path stroke="#718a89" stroke-opacity=".4" d="M-158 758h28m-45 5h36"/></g>
+      <g class="city-ripples" stroke="#52717a" stroke-width="1" opacity=".3">${Array.from({length: 20}, (_, i) => `<path d="M${30 + i * 79} ${725 + (i * 17) % 61}h${16 + (i * 13) % 34}"/>`).join('')}</g>
+      <g class="city-ferry"><path fill="#ba8065" d="M-126 753h112l-10 9h-88z"/><path fill="#e0ba91" d="M-126 753h112v2h-112z"/><path fill="#64828a" d="M-114 744h84v9h-84z"/><path fill="#b6b9a2" d="M-100 737h50v7h-50z"/><path fill="#d9be87" d="M-106 746h10v4h-10zm17 0h10v4h-10zm17 0h10v4h-10zm17 0h10v4h-10z"/><path fill="#d7ad76" d="M-16 751h3v2h-3z"/><path stroke="#718a89" stroke-opacity=".4" d="M-158 758h28m-45 5h36"/></g>
     </g>
     <g class="city-quay">
       <path fill="#293d48" d="M0 687h1600v14H0z"/><path fill="#5c6a6b" d="M0 687h1600v2H0z"/><path fill="#0d1d29" d="M0 701h1600v7H0z"/>
       <path stroke="#425761" stroke-width="2" d="M0 677h1600M0 684h1600"/>
       ${Array.from({length: 41},(_,i)=>'<path fill="#425761" d="M'+(i*40)+' 677h2v11h-2z"/>').join('')}
-      ${[610,930,1250,1540].map(x=>'<g class="city-lamp"><path fill="#d8bf8b" opacity=".055" d="M'+(x-9)+' 650h18l26 37h-70z"/><path fill="#6c807f" d="M'+x+' 650h3v37h-3zm-3 33h9v4h-9zm-6-38h15v3h-15z"/><path fill="#e2c591" d="M'+(x-6)+' 648h15v3h-15z"/></g>').join('')}
+      ${[290,610,930,1250,1540].map(x=>'<g class="city-lamp"><path fill="#d8bf8b" opacity=".055" d="M'+(x-9)+' 650h18l26 37h-70z"/><path fill="#6c807f" d="M'+x+' 650h3v37h-3zm-3 33h9v4h-9zm-6-38h15v3h-15z"/><path fill="#e2c591" d="M'+(x-6)+' 648h15v3h-15z"/></g>').join('')}
       <path fill="#62716a" d="M1120 675h33v3h-33zm2 6h29v3h-29z"/><path fill="#394f53" d="M1123 678h2v9h-2zm24 0h2v9h-2z"/>
     </g>
     <path fill="#162735" d="M0 791h1600v9H0z"/>
