@@ -433,6 +433,7 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 /* Preserve the soft waterfront-to-record-room transition. Later chapters use
    illustrated dividers with crisp edges instead of overlapping color fades. */
 @media screen {
+  .hero { border-bottom: 2px solid #9d8063; }
   .about-section { isolation: isolate; border-block: 0; }
   .education-section, .skills-section { border-block: 0; }
   .contact-section { border-top: 0; }
