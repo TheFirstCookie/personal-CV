@@ -38,7 +38,7 @@
   .project-details h3 { font-size: 29px; margin-top: 8px; }
   .project-description { margin-top: 10px; }
   .project-tags { margin-top: 14px; }
-  .project-links { margin-top: 19px; padding-top: 7px; }
+  .project-links { margin-top: auto; padding-top: 16px; }
 
   .about-section { padding-block: 60px 72px; }
   .desktop-layout { gap: 38px; }

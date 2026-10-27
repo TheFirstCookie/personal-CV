@@ -18,6 +18,7 @@ Open http://127.0.0.1:4173. This builds once at startup; after editing, run `npm
 - `src/components/night-city.mjs`: original city and canal SVG, with a waterfront promenade and ferry.
 - `src/components/landscapes.mjs`: coastal-sunset SVG scene.
 - `src/components/campus.mjs`: decorative campus, hills, and fireflies for education.
+- `src/components/dividers.mjs`: static pixel panoramas between the portfolio chapters.
 - `src/sections/`: one template per section.
 - `src/page.mjs`: document metadata, navigation, section order, footer.
 - `src/styles/tokens.css`: palette, type, spacing variables.
@@ -29,6 +30,7 @@ Open http://127.0.0.1:4173. This builds once at startup; after editing, run `npm
 - `src/styles/worlds.css`: immersive hero, desktop bio, landscape sections, and scene animation.
 - `src/styles/education.css`: university-led layout, compact training notes, and campus animation.
 - `src/styles/compact.css`: compact desktop type, spacing, and artwork sizes at normal browser zoom; mobile and print sizes stay independent.
+- `src/styles/dividers.css`: framed chapter illustrations and their mobile sizes.
 - `public/motion.js`: motion toggle, viewport visibility, and page visibility handling.
 - `public/scenery.js`: low-resolution Canvas 2D scenery renderer, with cached aurora terrain and a daybreak sailboat.
 - `scripts/cv-document.mjs`: `cvDocument()` returns the HTML used for the downloadable PDF. Regenerate using Chromium print-to-PDF after changing CV facts; the regular site build copies the existing PDF.

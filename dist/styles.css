@@ -210,7 +210,7 @@ h1 > span { display: block; color: var(--accent); }
 .text-link { display: inline-flex; align-items: center; gap: 20px; padding-block: 12px; color: var(--text); font-family: var(--mono); font-size: 11px; text-decoration: none; }
 .text-link:hover { color: var(--accent); }
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.project { --project-color: #b8d5c8; --cover-color: #192c2b; min-width: 0; }
+.project { --project-color: #b8d5c8; --cover-color: #192c2b; min-width: 0; display: flex; flex-direction: column; }
 .project-forgefit { --project-color: #ffaf6c; --cover-color: #35271e; }
 .project-art { position: relative; display: grid; place-items: center; height: 390px; isolation: isolate; overflow: hidden; background: radial-gradient(ellipse at 50% 65%, #35413c 0, #212a25 35%, #171d19 74%); text-decoration: none; border: 1px solid #343c33; perspective: 1100px; }
 .project-forgefit .project-art { background: radial-gradient(ellipse at 50% 65%, #42382c 0, #2c2821 35%, #1d1d18 74%); }
@@ -234,16 +234,22 @@ h1 > span { display: block; color: var(--accent); }
 .cover-bottomline > span:last-child { font-size: 15px; line-height: 1; }
 .project-shelf { position: absolute; z-index: -1; inset: auto 0 28px; height: 22px; background: linear-gradient(#737968 0 2px, #353d30 2px 7px, #20271e 7px); box-shadow: 0 14px 22px #0008; transform: skewY(-2deg); }
 .project-launch { position: absolute; bottom: 6px; right: 14px; font-family: var(--mono); font-size: 9px; color: var(--project-color); }
-.project-details { padding-top: 27px; }
+.project-details { display: flex; flex: 1; flex-direction: column; padding: 27px 24px 22px; background: #1c202b; border: 1px solid #ffffff24; border-top: 0; }
 .project-details > .overline { color: var(--project-color); font-size: 10px; }
 .project-details h3 { font-family: var(--pixel); font-size: 35px; font-weight: 400; margin-top: 10px; }
 .project-description { font-size: 14px; color: var(--muted); margin-top: 13px; max-width: 490px; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 18px 20px; }
 .project-tags li { border: 1px solid var(--line); padding: 4px 9px; font-family: var(--mono); font-size: 9px; color: var(--muted); }
-.project-links { display: flex; gap: 26px; border-top: 1px solid var(--line); margin-top: 24px; padding-top: 9px; }
-.project-links a { display: inline-flex; align-items: center; gap: 20px; font-family: var(--mono); font-size: 11px; padding-block: 12px; text-decoration: none; }
+.project-links { display: flex; flex-wrap: wrap; gap: 12px; border-top: 1px solid #ffffff24; margin-top: auto; padding-top: 16px; }
+.project-links a { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 42px; padding: 8px 12px; border: 1px solid #ffffff29; background: #151a25; font-family: var(--mono); font-size: 11px; text-decoration: none; }
 .project-links a:first-child { color: var(--project-color); }
-.project-links a:hover { text-decoration: underline; }
+.project-links a:hover { border-color: var(--project-color); background: #252b37; }
+.record-plaque { position: absolute; top: -14px; right: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; width: 148px; padding: 10px 8px 12px; border: 4px solid #5a4b4b; background: #272b38; box-shadow: inset 0 0 0 1px #ffffff0b; text-decoration: none; }
+.record-plaque svg { width: 96px; height: 96px; }
+.record-plaque-label { display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%; font-family: var(--mono); font-size: 10px; line-height: 1.4; white-space: nowrap; }
+.record-plaque::after { content: ''; width: 60px; height: 3px; background: #7a7871; box-shadow: 0 5px #7a787180; }
+.record-plaque:hover { border-color: var(--accent); }
+.projects-section .section-heading > div { padding-right: 180px; }
 @media (hover: hover) {
   .project-art:hover .cd-assembly { transform: translateY(-10px) rotate(-2deg) rotateY(0deg); }
   .project-art:hover .compact-disc { transform: translateX(25%) rotate(22deg); }
@@ -251,23 +257,34 @@ h1 > span { display: block; color: var(--accent); }
 .project-art:focus-visible .cd-assembly { transform: translateY(-10px) rotate(-2deg); }
 .project-art:focus-visible .compact-disc { transform: translateX(25%) rotate(22deg); }
 @media (max-width: 1050px) { .project-grid { gap: 30px; } .project-art { height: 320px; } .cd-assembly { width: 66%; } }
+@media (min-width: 761px) and (max-width: 1050px) {
+  .record-plaque { width: 136px; padding: 8px 6px 10px; }
+  .record-plaque svg { width: 80px; height: 80px; }
+}
 @media (max-width: 760px) {
   .project-grid { grid-template-columns: 1fr; gap: 45px; }
   .project-art { height: clamp(300px, 65vw, 390px); }
   .cd-assembly { width: 62%; } .cover-title { font-size: clamp(29px, 6vw, 43px); }
   .project-details h3 { font-size: 32px; }
   .projects-section .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+  .projects-section .section-heading > div { padding-right: 0; }
+  .record-plaque { position: static; flex-direction: row; width: auto; gap: 10px; padding: 7px 12px; border-width: 1px; }
+  .record-plaque svg { width: 28px; height: 28px; }
+  .record-plaque::after { display: none; }
 }
 @media (max-width: 380px) {
   .project-art { height: 280px; } .cd-assembly { width: 68%; }
   .cover-title { font-size: 26px; } .cover-topline { font-size: 5px; padding-inline: 7px; }
   .cover-bottomline { padding-inline: 7px; font-size: 5px; } .jewel-case { padding-left: 20px; }
-  .project-links { gap: 20px; } .project-links a { font-size: 10px; gap: 12px; }
+  .project-details { padding-inline: 18px; }
+  .project-links { gap: 10px; } .project-links a { font-size: 10px; gap: 8px; }
 }
 @media print {
   .projects-section { background: white; } .project-art { display: none; } .project-grid { gap: 25px; }
   .project { --project-color: #234c35; break-inside: avoid; }
-  .project-details h3 { font-size: 26px; } .project-details { padding-top: 0; }
+  .project-details h3 { font-size: 26px; } .project-details { padding: 0; background: white; border: 0; }
+  .record-plaque { display: none; }
+  .project-links a { min-height: 0; padding: 4px 0; background: white; border: 0; }
   .project-description { font-size: 11px; } .project-tags { display: none; }
 }
 
@@ -313,8 +330,6 @@ html[data-motion="off"] .project-art:is(:hover, :focus-visible) .compact-disc { 
 .site-header::after { content: ''; position: absolute; inset: auto 0 -3px; height: 3px; background: linear-gradient(90deg, #cf6a72, #f0a75a 45%, #e5d398); }
 nav a[aria-current="location"] { color: var(--accent); text-decoration: underline; text-underline-offset: 8px; }
 .hero { padding-top: 0; background: #172238; overflow: hidden; border-bottom: 0; }
-/* Blend the waterfront into the record room without adding section height. */
-.hero::after { content: ''; position: absolute; inset: auto 0 0; height: clamp(72px, 10vw, 128px); background: linear-gradient(transparent, #1c1e29); pointer-events: none; }
 .hero-world { position: absolute; inset: 0; z-index: -1; background: linear-gradient(#11172c, #35334a 65%, #685044); pointer-events: none; }
 .world-canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
 .hero-city { position: absolute; inset: 0; }
@@ -339,9 +354,9 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .scene-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .scene-switch > span { font-size: 18px; line-height: 1; }
 .projects-section { isolation: isolate; overflow: hidden; background: #1c1e29; border-bottom: 0; }
-.projects-section::before { content: ''; position: absolute; z-index: 0; inset: 0 0 auto; height: clamp(72px, 10vw, 128px); background: linear-gradient(#1c1e29, transparent); pointer-events: none; }
-.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.record-room { display: block; width: 100%; height: 620px; opacity: .62; }
+.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: repeating-linear-gradient(0deg, #35404a38 0 2px, transparent 2px 74px), repeating-linear-gradient(90deg, #35404a38 0 2px, transparent 2px 160px), linear-gradient(#24212d, #171c26); }
+/* The wall continues for the full content height; only its decorative details fade. */
+.record-room { display: block; width: 100%; height: 620px; opacity: .62; mask-image: linear-gradient(#000 45%, transparent); }
 .projects-section > .container { position: relative; z-index: 1; }
 .shelf-dust { position: absolute; inset: 0; }
 .shelf-dust i { position: absolute; left: var(--x); top: var(--y); width: 2px; height: 2px; background: #d7c3a0; opacity: .18; animation: shelf-drift 14s ease-in-out var(--delay) infinite alternate; }
@@ -415,6 +430,17 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 @keyframes sea-sway { to { transform: translateX(-35px); opacity: .6; } }
 @keyframes birds-glide { to { transform: translate(50px, -12px); } }
 .site-footer { background: var(--bg); }
+/* Preserve the soft waterfront-to-record-room transition. Later chapters use
+   illustrated dividers with crisp edges instead of overlapping color fades. */
+@media screen {
+  .about-section { isolation: isolate; border-block: 0; }
+  .education-section, .skills-section { border-block: 0; }
+  .contact-section { border-top: 0; }
+  .hero::after, .projects-section::before { content: ''; position: absolute; z-index: 0; inset-inline: 0; height: clamp(72px, 10vw, 128px); pointer-events: none; }
+  .hero::after { bottom: 0; background: linear-gradient(transparent, #1c1e29); }
+  .projects-section::before { top: 0; background: linear-gradient(#1c1e29, transparent); }
+  main > section > .container { position: relative; z-index: 1; }
+}
 .ambient { animation-play-state: paused; }
 html[data-motion="on"][data-page-visible="true"] .is-visible .ambient { animation-play-state: running; }
 html[data-motion="off"] .hero-city { transition: none; }
@@ -488,7 +514,7 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   html:not([data-motion="off"]) .project-forgefit .project-art:hover .cd-assembly { transform: rotate(5deg) rotateY(-8deg); }
 }
 @media print {
-  .hero::after, .projects-section::before { display: none; }
+  main > section::before, main > section::after { display: none; }
   .hero-world, .world-caption, .scene-controls, .shelf-atmosphere, .constellation, .contact-landscape, .terminal-prompt { display: none; }
   .hero-grid { min-height: 0; padding: 0; } .hero-copy { width: 100%; } .hero h1 { text-shadow: none; }
   .about-section, .education-section, .skills-section, .contact-section { background: white; color: #111; border: 0; padding-block: 20px; }
@@ -624,7 +650,7 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   .project-details h3 { font-size: 29px; margin-top: 8px; }
   .project-description { margin-top: 10px; }
   .project-tags { margin-top: 14px; }
-  .project-links { margin-top: 19px; padding-top: 7px; }
+  .project-links { margin-top: auto; padding-top: 16px; }
 
   .about-section { padding-block: 60px 72px; }
   .desktop-layout { gap: 38px; }
@@ -688,3 +714,17 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
 @media screen and (min-width: 951px) and (max-height: 800px) {
   .hero-grid { min-height: 0; padding-block: 24px 20px; }
 }
+
+/* Framed pixel panoramas provide a clear change of scene between chapters. */
+.chapter-divider { position: relative; height: 80px; overflow: hidden; border-top: 3px solid #17202c; border-bottom: 3px solid #17202c; background: #263540; }
+.chapter-divider svg { display: block; width: 100%; height: 100%; }
+.chapter-divider-desk { border-top-color: #6e5851; border-bottom-color: #415d6a; }
+.chapter-divider-campus { border-top-color: #415d6a; border-bottom-color: #52745a; }
+.chapter-divider-orbit { border-top-color: #52745a; border-bottom-color: #676580; }
+.chapter-divider-coast { border-top-color: #676580; border-bottom-color: #dfb387; }
+.chapter-divider-harbour { height: 44px; border-top-color: #af8667; border-bottom-color: #242a2c; }
+@media (max-width: 760px) {
+  .chapter-divider { height: 64px; }
+  .chapter-divider-harbour { height: 40px; }
+}
+@media print { .chapter-divider { display: none; } }

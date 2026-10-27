@@ -3,8 +3,6 @@
 .site-header::after { content: ''; position: absolute; inset: auto 0 -3px; height: 3px; background: linear-gradient(90deg, #cf6a72, #f0a75a 45%, #e5d398); }
 nav a[aria-current="location"] { color: var(--accent); text-decoration: underline; text-underline-offset: 8px; }
 .hero { padding-top: 0; background: #172238; overflow: hidden; border-bottom: 0; }
-/* Blend the waterfront into the record room without adding section height. */
-.hero::after { content: ''; position: absolute; inset: auto 0 0; height: clamp(72px, 10vw, 128px); background: linear-gradient(transparent, #1c1e29); pointer-events: none; }
 .hero-world { position: absolute; inset: 0; z-index: -1; background: linear-gradient(#11172c, #35334a 65%, #685044); pointer-events: none; }
 .world-canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
 .hero-city { position: absolute; inset: 0; }
@@ -29,9 +27,9 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .scene-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .scene-switch > span { font-size: 18px; line-height: 1; }
 .projects-section { isolation: isolate; overflow: hidden; background: #1c1e29; border-bottom: 0; }
-.projects-section::before { content: ''; position: absolute; z-index: 0; inset: 0 0 auto; height: clamp(72px, 10vw, 128px); background: linear-gradient(#1c1e29, transparent); pointer-events: none; }
-.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-.record-room { display: block; width: 100%; height: 620px; opacity: .62; }
+.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: repeating-linear-gradient(0deg, #35404a38 0 2px, transparent 2px 74px), repeating-linear-gradient(90deg, #35404a38 0 2px, transparent 2px 160px), linear-gradient(#24212d, #171c26); }
+/* The wall continues for the full content height; only its decorative details fade. */
+.record-room { display: block; width: 100%; height: 620px; opacity: .62; mask-image: linear-gradient(#000 45%, transparent); }
 .projects-section > .container { position: relative; z-index: 1; }
 .shelf-dust { position: absolute; inset: 0; }
 .shelf-dust i { position: absolute; left: var(--x); top: var(--y); width: 2px; height: 2px; background: #d7c3a0; opacity: .18; animation: shelf-drift 14s ease-in-out var(--delay) infinite alternate; }
@@ -105,6 +103,17 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 @keyframes sea-sway { to { transform: translateX(-35px); opacity: .6; } }
 @keyframes birds-glide { to { transform: translate(50px, -12px); } }
 .site-footer { background: var(--bg); }
+/* Preserve the soft waterfront-to-record-room transition. Later chapters use
+   illustrated dividers with crisp edges instead of overlapping color fades. */
+@media screen {
+  .about-section { isolation: isolate; border-block: 0; }
+  .education-section, .skills-section { border-block: 0; }
+  .contact-section { border-top: 0; }
+  .hero::after, .projects-section::before { content: ''; position: absolute; z-index: 0; inset-inline: 0; height: clamp(72px, 10vw, 128px); pointer-events: none; }
+  .hero::after { bottom: 0; background: linear-gradient(transparent, #1c1e29); }
+  .projects-section::before { top: 0; background: linear-gradient(#1c1e29, transparent); }
+  main > section > .container { position: relative; z-index: 1; }
+}
 .ambient { animation-play-state: paused; }
 html[data-motion="on"][data-page-visible="true"] .is-visible .ambient { animation-play-state: running; }
 html[data-motion="off"] .hero-city { transition: none; }
@@ -178,7 +187,7 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   html:not([data-motion="off"]) .project-forgefit .project-art:hover .cd-assembly { transform: rotate(5deg) rotateY(-8deg); }
 }
 @media print {
-  .hero::after, .projects-section::before { display: none; }
+  main > section::before, main > section::after { display: none; }
   .hero-world, .world-caption, .scene-controls, .shelf-atmosphere, .constellation, .contact-landscape, .terminal-prompt { display: none; }
   .hero-grid { min-height: 0; padding: 0; } .hero-copy { width: 100%; } .hero h1 { text-shadow: none; }
   .about-section, .education-section, .skills-section, .contact-section { background: white; color: #111; border: 0; padding-block: 20px; }

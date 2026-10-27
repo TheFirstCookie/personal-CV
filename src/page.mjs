@@ -5,6 +5,7 @@ import { about } from './sections/about.mjs';
 import { education } from './sections/education.mjs';
 import { skills } from './sections/skills.mjs';
 import { contact } from './sections/contact.mjs';
+import { chapterDivider } from './components/dividers.mjs';
 
 export function page(cv) {
   const description = `${cv.name} — developer and Information Technology student at the Technical University of Moldova. Based in Chișinău. Open to developer and IT opportunities.`;
@@ -31,7 +32,8 @@ export function page(cv) {
     <nav aria-label="Main navigation"><a href="#projects"><span>01</span> Work</a><a href="#about"><span>02</span> About</a><a href="#education"><span>03</span> Education</a><a href="#skills"><span>04</span> Skills</a><a href="#contact"><span>05</span> Contact</a></nav>
     <a class="header-cv" href="${e(cv.pdf)}" download>CV <span aria-hidden="true">↓</span><span class="sr-only"> — download PDF</span></a>
   </div></header>
-  <main id="main">${hero(cv)}${[projects, about, education, skills, contact].map(section => section(cv)).join('\n')}</main>
+  <main id="main">${hero(cv)}${projects(cv)}${chapterDivider('desk')}${about(cv)}${chapterDivider('campus')}${education(cv)}${chapterDivider('orbit')}${skills(cv)}${chapterDivider('coast')}${contact(cv)}</main>
+  ${chapterDivider('harbour')}
   <footer class="site-footer container"><a class="footer-brand" href="#home">dm<span>.</span></a><p>© ${new Date().getFullYear()} ${e(cv.name)}</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body>
 </html>`;

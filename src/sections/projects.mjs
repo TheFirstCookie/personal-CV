@@ -11,7 +11,6 @@ function recordRoom() {
     <g opacity=".48">${spines}<path fill="#866650" d="M0 330h1600v7H0z"/><path fill="#392f32" d="M0 337h1600v13H0z"/></g>
     <path fill="#171c26" d="M0 352h1600v268H0z"/>
     <path stroke="#35404a" stroke-width="2" d="M0 426h1600M0 500h1600M0 574h1600M90 352v268m160-268v268m160-268v268m160-268v268m160-268v268m160-268v268m160-268v268m160-268v268m160-268v268m160-268v268"/>
-    <g transform="translate(1360 44)"><path fill="#5a4b4b" d="M0 0h142v170H0z"/><path fill="#272b38" d="M5 5h132v160H5z"/><circle cx="71" cy="77" r="48" fill="#424653"/><circle cx="71" cy="77" r="35" stroke="#a89170" stroke-opacity=".4"/><circle cx="71" cy="77" r="15" fill="#b58a69"/><circle cx="71" cy="77" r="4" fill="#272b38"/><path fill="#7a7871" d="M26 139h90v3H26zm20 9h50v2H46z"/></g>
     <g transform="translate(18 415)"><path fill="#4a4044" d="M0 0h90v190H0z"/><path fill="#242633" d="M5 5h80v180H5z"/><circle cx="45" cy="49" r="23" fill="#41434d"/><circle cx="45" cy="126" r="33" fill="#41434d"/><circle cx="45" cy="126" r="14" fill="#202530"/></g>
     <g class="room-light ambient" fill="#e8bc82" opacity=".06"><path d="M300 0h55l170 620H120zM1120 0h55l240 620H950z"/></g>
   </svg><div class="shelf-dust">${Array.from({ length: 9 }, (_, i) => `<i class="ambient" style="--x:${9 + i * 10}%;--y:${16 + i * 29 % 72}%;--delay:-${i * 1.7}s"></i>`).join('')}</div>`;
@@ -33,7 +32,7 @@ function displayCabinet(warm) {
 export function projects(cv) {
   return `<section class="section projects-section motion-scene" data-motion-scene id="projects" aria-labelledby="projects-title"><div class="shelf-atmosphere" aria-hidden="true">${recordRoom()}</div><div class="container">
     ${sectionLabel('01', 'Selected projects')}
-    <div class="section-heading"><div><h2 id="projects-title">On the shelf<span class="accent">.</span></h2><p class="projects-intro">Two websites. Ready to explore.</p></div><a class="text-link" href="${e(cv.github)}" target="_blank" rel="noopener noreferrer">More on GitHub ${arrow}<span class="sr-only"> (opens in a new tab)</span></a></div>
+    <div class="section-heading"><div><h2 id="projects-title">On the shelf<span class="accent">.</span></h2><p class="projects-intro">Two websites. Ready to explore.</p></div><a class="record-plaque" href="${e(cv.github)}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#424653"/><circle cx="50" cy="50" r="35" stroke="#a89170" stroke-opacity=".4"/><circle cx="50" cy="50" r="15" fill="#b58a69"/><circle cx="50" cy="50" r="4" fill="#272b38"/></svg><span class="record-plaque-label">More on GitHub ${arrow}</span><span class="sr-only"> (opens in a new tab)</span></a></div>
     <div class="project-grid">${cv.projects.map((project, index) => `<article class="project project-${e(project.id)}" aria-labelledby="project-${e(project.id)}-title">
       <a class="project-art" href="${e(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${e(project.name)} (opens in a new tab)">
         ${displayCabinet(index === 1)}
