@@ -80,6 +80,25 @@ export function createScenery(canvas) {
         const y = height * .81 + i * height * .012, x = sx + Math.sin(time * .5 + i * 2) * 14;
         rect(x - i * 3, y, 20 + i * 6, i % 3 === 0 ? 2 : 1, i % 2 ? '#d1bda6' : '#e5cba7');
       }
+      // A small sailboat shares the scenery clock, so pausing motion freezes it.
+      const boatSize = Math.max(16, Math.min(28, width * .04));
+      const bx = Math.round(width * .68 + Math.sin(time * .18) * 4);
+      const by = Math.round(height * .875 + Math.sin(time * 1.1) * .8);
+      const mastHeight = Math.round(boatSize * .95);
+      const halfHull = Math.round(boatSize / 2);
+      ctx.globalAlpha = .25;
+      rect(bx - halfHull, by + 7, boatSize, 1, '#405b63');
+      rect(bx - halfHull + 3 + Math.sin(time * .7) * 2, by + 10, boatSize - 6, 1, '#e9cfac');
+      ctx.globalAlpha = 1;
+      rect(bx, by - mastHeight, 1, mastHeight + 2, '#635952');
+      ctx.fillStyle = '#f5e2bf';
+      ctx.beginPath(); ctx.moveTo(bx - 2, by - mastHeight + 2); ctx.lineTo(bx - halfHull, by - 3); ctx.lineTo(bx - 2, by - 3); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#dfb79d';
+      ctx.beginPath(); ctx.moveTo(bx + 2, by - mastHeight + 7); ctx.lineTo(bx + halfHull - 2, by - 3); ctx.lineTo(bx + 2, by - 3); ctx.closePath(); ctx.fill();
+      rect(bx + 1, by - mastHeight, 5, 2, '#bd765b');
+      rect(bx - halfHull, by, boatSize, 2, '#715247');
+      rect(bx - halfHull + 2, by + 2, boatSize - 4, 2, '#4c4e50');
+      rect(bx - halfHull + 4, by + 4, boatSize - 8, 1, '#40515a');
       mountains(1.03, .05, '#384f55', 9);
     }
   }
