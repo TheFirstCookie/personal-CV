@@ -50,7 +50,16 @@ export const cv = {
     { year: '2023', title: 'Fundamentele IT', subtitle: 'IT fundamentals', provider: 'Orange Digital Center' },
     { year: '2019', title: 'Summer School 2019', subtitle: '', provider: 'Fundația Youth Development for Innovation' },
   ],
-  skills: ['Information technology', 'Teamwork', 'Punctuality', 'Self-discipline'],
+  skills: [
+    'Responsive web development',
+    'Interactive user interfaces',
+    'Product search & filtering',
+    'Modular code organisation',
+    'Version control with Git',
+    'Analytical problem-solving',
+    'Task planning & prioritisation',
+    'Self-directed technical learning',
+  ],
   languages: [
     { name: 'Romanian', level: 'Native', code: 'RO' },
     { name: 'English', level: 'Fluent', code: 'EN' },
