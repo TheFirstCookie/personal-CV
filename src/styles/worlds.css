@@ -5,9 +5,10 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .hero { padding-top: 0; background: #172238; overflow: hidden; border-bottom: 0; }
 .hero-world { position: absolute; inset: 0; z-index: -1; background: linear-gradient(#11172c, #35334a 65%, #685044); pointer-events: none; }
 .world-canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
-.hero-city { position: absolute; right: -2%; bottom: 0; width: min(68%, 960px); transition: opacity 500ms ease; mask-image: linear-gradient(90deg, transparent, #000 24%, #000), linear-gradient(180deg, transparent, #000 16%, #000 86%, transparent); mask-composite: intersect; }
-.hero-city .night-city > path:first-of-type { display: none; }
-.hero[data-sky="aurora"] .hero-city, .hero[data-sky="daybreak"] .hero-city { opacity: 0; }
+.hero-city { position: absolute; inset: 0; }
+.hero-city > .night-city { width: 100%; height: 100%; }
+.hero:not([data-sky="city"]) .hero-city { visibility: hidden; }
+.hero[data-sky="city"] :is(.world-canvas, .world-scrim) { visibility: hidden; }
 .world-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, #0e1423eb, #121a29b3 30%, #141a2c33 58%, transparent 80%), linear-gradient(0deg, #111b2c, transparent 24%); }
 .hero-grid { min-height: 720px; display: flex; align-items: center; justify-content: space-between; gap: 0; padding-block: 85px 65px; }
 .hero-copy { position: relative; z-index: 1; width: 57%; max-width: 660px; }
@@ -100,7 +101,7 @@ html[data-motion="on"][data-page-visible="true"] .is-visible .ambient { animatio
 html[data-motion="off"] .hero-city { transition: none; }
 html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation-play-state: paused; }
 @media (max-width: 1050px) {
-  .hero-grid { min-height: 610px; } .hero-city { width: 80%; right: -15%; }
+  .hero-grid { min-height: 610px; }
   .hero-copy { width: 65%; } .world-caption { max-width: 230px; }
   .desktop-layout { gap: 30px; } .bio-window-content { padding: 24px; } .bio-note { padding-inline: 20px; }
   .scene-controls { gap: 12px; }
@@ -108,12 +109,10 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
 @media (max-width: 760px) {
   .hero-grid { display: block; min-height: 670px; padding-block: 55px 40px; }
   .hero-copy { width: 100%; max-width: 510px; }
-  .hero-city { width: 100%; right: -23%; bottom: 0; opacity: .8; }
   .world-scrim { background: linear-gradient(90deg, #0e1423ed, #121a29b3 48%, #141a2c22), linear-gradient(#121a2988, transparent); }
   .world-caption { margin-top: 65px; margin-left: auto; }
   .hero-foot { flex-wrap: wrap; gap: 7px 15px; padding-block: 12px; }
   .scene-controls { order: 3; width: 100%; justify-content: space-between; border-top: 1px solid #ffffff26; padding-top: 8px; margin-top: 6px; }
-  .hero-foot > a { margin-left: auto; }
   .desktop-layout { grid-template-columns: 1fr; gap: 38px; }
   .bio-note { max-width: 460px; width: calc(100% - 14px); justify-self: center; }
   .about-section { padding-block: 60px 75px; }
@@ -127,7 +126,7 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   .bio-note .facts dd { text-align: left; }
 }
 @media (max-width: 380px) {
-  .hero-grid { min-height: 650px; } .hero-city { width: 125%; right: -40%; }
+  .hero-grid { min-height: 650px; }
   .world-caption { margin-top: 45px; } .hero-foot { font-size: 8px; }
   .bio-window-content { padding: 20px 17px; } .bio-window h2 { font-size: 34px; }
   .terminal-prompt { font-size: 8px; } .skills-grid > div { padding: 18px 16px 6px; }

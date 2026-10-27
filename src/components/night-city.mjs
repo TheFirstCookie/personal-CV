@@ -1,48 +1,45 @@
-// Generated once at build time. Browser motion uses only CSS opacity/transform.
+// One full-width illustration: the sky, skyline, and waterfront share coordinates.
 const windows = (x, y, columns, rows, tone, offset = 0) => {
   let result = '';
   for (let row = 0; row < rows; row++) {
     for (let col = 0; col < columns; col++) {
       if ((row * 3 + col * 2 + offset) % 5 === 0) continue;
-      const dim = (row + col + offset) % 4 === 0;
-      result += `<rect x="${x + col * 16}" y="${y + row * 21}" width="5" height="8" fill="${tone}" opacity="${dim ? '.25' : '.8'}"/>`;
+      result += `<rect x="${x + col * 16}" y="${y + row * 22}" width="4" height="7" fill="${tone}" opacity="${(row + col + offset) % 4 === 0 ? '.25' : '.7'}"/>`;
     }
   }
   return result;
 };
 
 export function nightCity() {
-  return `<svg class="night-city" xmlns="http://www.w3.org/2000/svg" width="600" height="520" viewBox="0 0 600 520" fill="none" aria-hidden="true" shape-rendering="crispEdges">
-    <defs><linearGradient id="night-sky" x2="0" y2="1"><stop stop-color="#111a32"/><stop offset=".65" stop-color="#333048"/><stop offset="1" stop-color="#a46147"/></linearGradient><linearGradient id="city-haze" x2="0" y2="1"><stop stop-color="#efab73" stop-opacity="0"/><stop offset="1" stop-color="#efab73" stop-opacity=".12"/></linearGradient></defs>
-    <path fill="url(#night-sky)" d="M0 0h600v520H0z"/>
-    <g fill="#cbd7e5" opacity=".55"><path d="M38 55h3v3h-3zm71 58h2v2h-2zm83-77h2v2h-2zm62 64h3v3h-3zm-98 63h2v2h-2zm180-123h2v2h-2zm193 57h3v3h-3zm-48 63h2v2h-2zm-444 44h2v2h-2zm271-34h2v2h-2z"/></g>
-    <g class="city-stars" fill="#e7d4ad"><path d="M89 43h3v9h-3zm-3 3h9v3h-9zm202 16h3v9h-3zm-3 3h9v3h-9zm228-44h3v9h-3zm-3 3h9v3h-9zm34 164h3v9h-3zm-3 3h9v3h-9z"/></g>
-    <path fill="#f3c68e" d="M412 56h40v8h16v8h8v16h8v40h-8v16h-8v8h-16v8h-40v-8h-16v-8h-8v-16h-8V88h8V72h8v-8h16z"/>
-    <path fill="#dbac79" d="M400 120h16v16h-16zm44-48h16v8h-16zm0 56h24v8h-24z"/>
-    <g class="city-cloud city-cloud-far" fill="#49516a" opacity=".45"><path d="M310 166h32v-8h56v8h32v8h32v8H294v-8h16zM24 99h24v-8h48v8h40v8H16v-8z"/></g>
-    <g class="city-cloud city-cloud-near" fill="#747185" opacity=".35"><path d="M386 112h40v-8h64v8h32v8h32v8H370v-8h16zM140 202h40v-8h48v8h48v8H124v-8h16z"/></g>
-    <path fill="#343445" d="M0 280h20v-40h32v32h24v-56h32v-16h8v16h24v64h24v-40h40v-24h24v-32h8v32h24v48h32v-32h40v-48h8v48h32v48h24v-72h40v32h32v-48h40v72h32v-40h40v56h40v-88h32v72h20v-32h28v224H0z"/>
-    <path fill="url(#city-haze)" d="M0 230h600v100H0z"/>
-    <path fill="#202735" d="M0 314h32V208h88v106h32v-32h60v-58h64v104h44v-60h80v48h32V190h72v132h40v-44h56v242H0z"/>
-    <path fill="#4a4650" d="M32 208h88v5H32zm180 16h64v5h-64zm220-34h72v5h-72z"/>
-    <path fill="#202735" d="M456 174h24v16h-24zm10-32h4v32h-4z"/>
-    ${windows(46, 228, 4, 5, '#e9b87d')}
-    ${windows(224, 243, 3, 3, '#a9c1c9', 1)}
-    ${windows(446, 211, 3, 6, '#e9b87d', 2)}
-    <g class="city-lights">${windows(336, 284, 3, 3, '#efbf8f', 3)}</g>
-    <path fill="#131c26" d="M0 348h600v15H0z"/><path fill="#776b65" d="M0 348h600v3H0z"/>
-    <path stroke="#333a44" stroke-width="3" d="M18 353v41m88-41v41m88-41v41m88-41v41m88-41v41m88-41v41m88-41v41"/>
-    <g class="city-train"><path fill="#a9afa2" d="M0 329h96v4h8v12H0z"/><path fill="#edc486" d="M8 333h10v6H8zm17 0h10v6H25zm17 0h10v6H42zm17 0h10v6H59zm17 0h10v6H76z"/><path fill="#e9ad76" d="M100 338h4v4h-4z"/><path fill="#242936" d="M0 343h104v3H0z"/></g>
-    <path fill="#0f171e" d="M0 400h38v-33h100v33h48v-16h110v32h48v-40h92v24h36v-42h128v162H0z"/>
-    <path fill="#303937" d="M38 367h100v6H38zm148 17h110v6H186zm158-8h92v6h-92zm128-18h128v6H472z"/>
-    <path fill="#f1b277" d="M57 395h12v18H57zm30 0h12v18H87zm-30 39h12v18H57zm30 0h12v18H87zm115-21h18v8h-18zm26 0h18v8h-18zm26 0h18v8h-18z" opacity=".75"/>
-    <path fill="#111b1b" d="M454 450h146v70H454z"/>
-    <path stroke="#43504a" stroke-width="4" d="M474 395h94v39h-94z"/>
-    <g fill="#ffab68"><path d="M492 406h5v5h-5zm-5 5h5v5h-5zm5 5h5v5h-5zm51-10h5v5h-5zm5 5h5v5h-5zm-5 5h5v5h-5zM521 403h5v7h-5zm-5 7h5v7h-5zm-5 7h5v7h-5z"/></g>
-    <path stroke="#43504a" stroke-width="3" d="M484 435v15m74-15v15"/>
-    <path fill="#0a1116" d="M0 480h600v40H0z"/><path fill="#42453b" d="M0 478h600v5H0z"/>
-    <path fill="#70715a" d="M330 424h5v54h-5z"/><path fill="#e8bc83" d="M320 419h25v7h-25z"/>
-    <path fill="#b49069" d="M383 450h10v10h-10z"/><path fill="#859281" d="M379 460h18v13h-18z"/><path fill="#303b3b" d="M381 473h6v7h-6zm10 0h6v7h-6z"/>
-    <path fill="#72573f" d="M45 494h60v2H45zm170 12h33v2h-33zm240-11h73v2h-73z"/>
+  const distant = Array.from({ length: 29 }, (_, i) => {
+    const x = i * 58 - 20, h = x < 700 ? 45 + (i * 29) % 65 : 90 + (i * 43) % 155;
+    return `<path fill="${i % 2 ? '#263449' : '#2d394e'}" d="M${x} 635V${635 - h}h44v${h}z"/>`;
+  }).join('');
+  const buildings = Array.from({ length: 16 }, (_, i) => {
+    const x = i * 108 - 18, h = x < 730 ? 68 + (i * 23) % 55 : 150 + (i * 47) % 195;
+    const top = 710 - h, w = 70 + i % 3 * 12;
+    return `<g><path fill="${i % 2 ? '#172637' : '#1c2d40'}" d="M${x} 710V${top}h${w}v${h}z"/><path fill="#3e4856" d="M${x} ${top}h${w}v3h-${w}z"/>${x > 730 ? `<path fill="#172637" d="M${x + 24} ${top}v-14h22v14z"/>${windows(x + 12, top + 20, Math.floor((w - 20) / 16), Math.floor((h - 30) / 22), i % 3 ? '#d3ac7d' : '#90abb3', i)}` : ''}</g>`;
+  }).join('');
+  return `<svg class="night-city" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMax slice" fill="none" aria-hidden="true" shape-rendering="crispEdges">
+    <defs><linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#101a2c"/><stop offset=".55" stop-color="#202c43"/><stop offset="1" stop-color="#3c3d50"/></linearGradient></defs>
+    <path fill="url(#night-sky)" d="M0 0h1600v800H0z"/>
+    <g class="city-stars" fill="#d3cdbb">${Array.from({ length: 52 }, (_, i) => `<path opacity="${i % 3 ? '.4' : '.7'}" d="M${(i * 197 + 47) % 1590} ${30 + (i * 53) % 380}h2v2h-2z"/>`).join('')}</g>
+    <path fill="#e8c99b" d="M1320 94h42v8h18v10h12v18h8v42h-8v18h-12v10h-18v8h-42v-8h-18v-10h-12v-18h-8v-42h8v-18h12v-10h18z"/>
+    <path fill="#c2a989" d="M1300 150h16v12h-16zm46-38h14v8h-14zm8 54h22v8h-22z"/>
+    <g class="city-cloud city-cloud-far" fill="#647085" opacity=".22"><path d="M800 168h58v-9h70v9h44v8H800zM1190 242h45v-10h98v10h80v8h-223zM230 99h45v-8h78v8h40v7H230z"/></g>
+    <g class="city-cloud city-cloud-near" fill="#7b7b8d" opacity=".22"><path d="M1258 150h55v-8h72v8h70v8h-197zM650 285h40v-9h75v9h55v8H650z"/></g>
+    ${distant}
+    <path fill="#243346" d="M0 627h1600v173H0z"/>
+    ${buildings}
+    <path fill="#101e2c" d="M0 704h1600v96H0z"/>
+    <path fill="#40505a" d="M0 704h1600v3H0z"/>
+    <g fill="#80908a" opacity=".28"><path d="M914 731h38v2h-38zm130 28h65v2h-65zm139-28h23v2h-23zm-178 55h42v2h-42zm326-34h83v2h-83zm161 28h49v2h-49z"/></g>
+    <path fill="#111f2d" d="M780 638h820v15H780z"/><path fill="#58616a" d="M780 638h820v3H780z"/>
+    <path stroke="#263848" stroke-width="5" d="M820 650v54m130-54v54m130-54v54m130-54v54m130-54v54m130-54v54"/>
+    <g class="city-train"><path fill="#7f979c" d="M810 619h128v4h10v13H810z"/><path fill="#edce9b" d="M820 623h13v7h-13zm23 0h13v7h-13zm23 0h13v7h-13zm23 0h13v7h-13zm23 0h13v7h-13z"/><path fill="#213140" d="M810 634h138v3H810z"/></g>
+    <g fill="#10202c"><path d="M0 775h1040v25H0zm1100-25h500v50h-500z"/></g>
+    <g fill="#62736e"><path d="M1140 690h3v60h-3zm350-15h3v75h-3z"/></g>
+    <g class="city-lights" fill="#e1bd86"><path d="M1134 685h15v5h-15zm350-15h15v5h-15z"/></g>
+    <path fill="#162735" d="M0 791h1600v9H0z"/>
   </svg>`;
 }

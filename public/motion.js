@@ -22,7 +22,7 @@ function syncMotion() {
   syncWorld();
 }
 
-function syncWorld() { world?.setActive(enabled && !preference.matches && !document.hidden && hero.classList.contains('is-visible')); }
+function syncWorld() { world?.setActive(hero.dataset.sky !== 'city' && enabled && !preference.matches && !document.hidden && hero.classList.contains('is-visible')); }
 function syncVisibility() { root.dataset.pageVisible = String(!document.hidden); syncWorld(); }
 button.hidden = false;
 button.addEventListener('click', () => {
@@ -40,6 +40,7 @@ if (world) {
     const [mode, name] = scenes[sceneIndex];
     hero.dataset.sky = mode;
     world.setMode(mode);
+    syncWorld();
     document.querySelector('[data-world-name]').textContent = name;
     document.querySelector('[data-world-announcement]').textContent = `Scenery changed to ${name}.`;
   });

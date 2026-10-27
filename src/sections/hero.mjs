@@ -14,7 +14,7 @@ export function hero(cv) {
       </div>
       <div class="world-caption"><span class="world-coordinates">47.01° N &nbsp; 28.86° E</span><span class="world-name" data-world-name>After hours</span><span class="world-hint">A little corner of my world.</span></div>
     </div>
-    <div class="container hero-foot"><span>Based in ${e(cv.location)}</span><div class="scene-controls"><button class="scene-switch" type="button" hidden>Change scenery <span aria-hidden="true">↻</span></button><button class="motion-toggle" type="button" aria-label="Animations" aria-pressed="true" hidden><span data-motion-label>Motion on</span><span aria-hidden="true" data-motion-icon>Ⅱ</span></button></div><a href="${e(cv.pdf)}" download>Download my CV <span aria-hidden="true">↓</span></a></div>
+    <div class="container hero-foot"><span>Based in ${e(cv.location)}</span><div class="scene-controls"><button class="scene-switch" type="button" hidden>Change scenery <span aria-hidden="true">↻</span></button><button class="motion-toggle" type="button" aria-label="Animations" aria-pressed="true" hidden><span data-motion-label>Motion on</span><span aria-hidden="true" data-motion-icon>Ⅱ</span></button></div></div>
     <p class="sr-only" data-world-announcement aria-live="polite"></p>
   </section>`;
 }
