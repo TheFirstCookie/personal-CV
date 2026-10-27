@@ -30,13 +30,22 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .signal-track { display: flex; width: max-content; animation: signal-scroll 36s linear infinite; }
 .signal-track > span { white-space: nowrap; flex: none; font-family: var(--pixel); font-size: 24px; line-height: 1; letter-spacing: .13em; }
 @keyframes signal-scroll { to { transform: translateX(-50%); } }
-.projects-section { isolation: isolate; overflow: hidden; background: #282334; border-bottom: 0; }
-.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 20% 40%, #815d5166, transparent 45%), radial-gradient(ellipse at 85% 25%, #725c885e, transparent 50%), repeating-linear-gradient(0deg, #ffffff03 0 1px, transparent 1px 4px); }
-.shelf-grid { position: absolute; bottom: -140px; left: -30%; width: 160%; height: 500px; transform: perspective(350px) rotateX(55deg); transform-origin: center bottom; background-image: linear-gradient(#cda76e33 1px, transparent 1px), linear-gradient(90deg, #cda76e33 1px, transparent 1px); background-size: 64px 64px; animation: shelf-flow 12s linear infinite; opacity: .35; }
-@keyframes shelf-flow { to { background-position: 0 64px; } }
+.projects-section { isolation: isolate; overflow: hidden; background: #1c1e29; border-bottom: 0; }
+.shelf-atmosphere { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.record-room { display: block; width: 100%; height: 620px; opacity: .62; }
+.projects-section > .container { position: relative; }
+.shelf-dust { position: absolute; inset: 0; }
+.shelf-dust i { position: absolute; left: var(--x); top: var(--y); width: 2px; height: 2px; background: #d7c3a0; opacity: .18; animation: shelf-drift 14s ease-in-out var(--delay) infinite alternate; }
+.room-light { animation: room-glow 12s ease-in-out infinite alternate; }
+.display-cabinet { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; }
+.display-light { animation: display-glow 8s ease-in-out infinite alternate; }
+.project-forgefit .display-light { animation-delay: -4s; }
+@keyframes shelf-drift { to { transform: translate(18px, -30px); opacity: .4; } }
+@keyframes room-glow { to { opacity: .1; } }
+@keyframes display-glow { to { opacity: .17; } }
 .projects-section .eyebrow, .projects-intro { color: #bdb2c6; }
-.projects-section .project-art { background: radial-gradient(ellipse at 50% 50%, #64736977, #1c272855 65%), #212b2c88; border-color: #83928759; box-shadow: 0 20px 22px -18px #000; }
-.projects-section .project-forgefit .project-art { background: radial-gradient(ellipse at 50% 50%, #ad815966, #35252777 65%), #32232488; }
+.projects-section .project-art { background: #253033; border-color: #83928759; box-shadow: 0 20px 22px -18px #000; }
+.projects-section .project-forgefit .project-art { background: #32292c; }
 .project-description, .project-tags li { color: #c0b8c6; }
 .project-details { position: relative; }
 .project-links { border-top-color: #ffffff29; }
