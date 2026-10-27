@@ -7,14 +7,18 @@
 .city-stars { animation: city-twinkle 7s ease-in-out infinite alternate; }
 .city-cloud-far { animation: city-clouds 28s ease-in-out infinite alternate; }
 .city-cloud-near { animation: city-clouds 19s ease-in-out -8s infinite alternate-reverse; }
-.city-train { animation: city-commute 24s linear -8s infinite; }
-.city-lights { animation: city-windows 11s steps(1, end) infinite; }
-.night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation-play-state: paused; }
-html[data-motion="on"][data-page-visible="true"] .is-visible .night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation-play-state: running; }
+.city-ferry { transform: translateX(980px); animation: city-crossing 42s linear -24s infinite; }
+.city-reflections { transform-origin: 1200px 750px; animation: city-reflect 5s ease-in-out infinite alternate; }
+.city-ripples { animation: city-ripple 7s ease-in-out infinite alternate; }
+.city-window-group { animation: city-windows 19s ease-in-out var(--window-delay) infinite alternate; }
+.night-city :is(.city-stars, .city-cloud, .city-ferry, .city-reflections, .city-ripples, .city-window-group) { animation-play-state: paused; }
+html[data-motion="on"][data-page-visible="true"] .is-visible .night-city :is(.city-stars, .city-cloud, .city-ferry, .city-reflections, .city-ripples, .city-window-group) { animation-play-state: running; }
 @keyframes city-twinkle { from { opacity: .3; } to { opacity: .9; } }
 @keyframes city-clouds { from { transform: translateX(-12px); } to { transform: translateX(20px); } }
-@keyframes city-commute { from { transform: translateX(-130px); } to { transform: translateX(650px); } }
-@keyframes city-windows { 0%, 65%, 100% { opacity: 1; } 66%, 78% { opacity: .35; } }
+@keyframes city-crossing { from { transform: translateX(0); } to { transform: translateX(1800px); } }
+@keyframes city-reflect { from { transform: scaleX(.94); opacity: .65; } to { transform: scaleX(1.04); opacity: 1; } }
+@keyframes city-ripple { to { transform: translateX(14px); opacity: .15; } }
+@keyframes city-windows { 0%, 55% { opacity: 1; } 100% { opacity: .5; } }
 html[data-motion="off"] .cd-assembly, html[data-motion="off"] .compact-disc { transition: none; }
 html[data-motion="off"] .project-art:is(:hover, :focus-visible) .cd-assembly { transform: rotate(-6deg) rotateY(-8deg); }
 html[data-motion="off"] .project-forgefit .project-art:is(:hover, :focus-visible) .cd-assembly { transform: rotate(5deg) rotateY(-8deg); }
@@ -23,7 +27,7 @@ html[data-motion="off"] .project-art:is(:hover, :focus-visible) .compact-disc { 
   .motion-toggle { font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation: none !important; }
+  .night-city :is(.city-stars, .city-cloud, .city-ferry, .city-reflections, .city-ripples, .city-window-group) { animation: none !important; }
   .cd-assembly, .compact-disc { transition: none !important; }
   .project-art:is(:hover, :focus-visible) .cd-assembly { transform: rotate(-6deg) rotateY(-8deg); }
   .project-forgefit .project-art:is(:hover, :focus-visible) .cd-assembly { transform: rotate(5deg) rotateY(-8deg); }

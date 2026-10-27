@@ -99,7 +99,7 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .ambient { animation-play-state: paused; }
 html[data-motion="on"][data-page-visible="true"] .is-visible .ambient { animation-play-state: running; }
 html[data-motion="off"] .hero-city { transition: none; }
-html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .night-city :is(.city-stars, .city-cloud, .city-train, .city-lights) { animation-play-state: paused; }
+html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .night-city :is(.city-stars, .city-cloud, .city-ferry, .city-reflections, .city-ripples, .city-window-group) { animation-play-state: paused; }
 @media (max-width: 1050px) {
   .hero-grid { min-height: 610px; }
   .hero-copy { width: 65%; } .world-caption { max-width: 230px; }

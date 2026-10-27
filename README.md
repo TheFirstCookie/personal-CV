@@ -15,7 +15,7 @@ Open http://127.0.0.1:4173. This builds once at startup; after editing, run `npm
 ## Edit
 
 - `src/content.mjs`: CV facts, GitHub, project links, education, courses, skills, languages.
-- `src/components/night-city.mjs`: original skyline SVG generated at build time.
+- `src/components/night-city.mjs`: original city and canal SVG, with a waterfront promenade and ferry.
 - `src/components/landscapes.mjs`: coastal-sunset SVG scene.
 - `src/components/campus.mjs`: decorative campus, hills, and fireflies for education.
 - `src/sections/`: one template per section.
@@ -29,7 +29,7 @@ Open http://127.0.0.1:4173. This builds once at startup; after editing, run `npm
 - `src/styles/worlds.css`: immersive hero, desktop bio, landscape sections, and scene animation.
 - `src/styles/education.css`: university-led layout, compact training notes, and campus animation.
 - `public/motion.js`: motion toggle, viewport visibility, and page visibility handling.
-- `public/scenery.js`: low-resolution Canvas 2D sky renderer (city, aurora, daybreak).
+- `public/scenery.js`: low-resolution Canvas 2D scenery renderer, with cached aurora terrain and a daybreak sailboat.
 - `scripts/cv-document.mjs`: `cvDocument()` returns the HTML used for the downloadable PDF. Regenerate using Chromium print-to-PDF after changing CV facts; the regular site build copies the existing PDF.
 - `public/assets/`: self-hosted font, original illustration, favicon, and downloadable CV.
 

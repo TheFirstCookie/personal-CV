@@ -10,21 +10,79 @@ export function createScenery(canvas) {
     daybreak: ['#80718f', '#a789a0', '#c8a1aa', '#deb3a7', '#edc4a5', '#f3d4aa'],
   };
   const rect = (x, y, w, h, color) => { ctx.fillStyle = color; ctx.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h)); };
+  const terrainPaths = new Map();
+  let auroraBackground = null, auroraForeground = null, skyGradient = null;
+  let auroraWaves = [];
 
-  function mountains(baseline, amplitude, color, seed) {
-    ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(0, height);
-    for (let x = 0; x <= width + 16; x += 16) {
-      const ridge = Math.sin(x * .013 + seed) * .4 + Math.sin(x * .027 + seed * 3) * .3 + Math.sin(x * .005 + seed) * .3;
-      ctx.lineTo(x, Math.round(height * baseline + ridge * height * amplitude));
+  function ridgeSample(x, baseline, amplitude, seed) {
+    const ridge = Math.sin(x * .013 + seed) * .4 + Math.sin(x * .027 + seed * 3) * .3 + Math.sin(x * .005 + seed) * .3;
+    return Math.round(height * baseline + ridge * height * amplitude);
+  }
+
+  // Match the actual polygon edge between its 16px samples, including on resize.
+  function groundAt(x, baseline, amplitude, seed) {
+    const left = Math.floor(x / 16) * 16, fraction = (x - left) / 16;
+    return ridgeSample(left, baseline, amplitude, seed) * (1 - fraction) + ridgeSample(left + 16, baseline, amplitude, seed) * fraction;
+  }
+
+  function mountains(baseline, amplitude, color, seed, target = ctx) {
+    const key = `${baseline}:${amplitude}:${seed}`;
+    if (!terrainPaths.has(key)) {
+      const path = new Path2D(); path.moveTo(0, height);
+      for (let x = 0; x <= width + 16; x += 16) path.lineTo(x, ridgeSample(x, baseline, amplitude, seed));
+      path.lineTo(width, height); path.closePath(); terrainPaths.set(key, path);
     }
-    ctx.lineTo(width, height); ctx.closePath(); ctx.fill();
+    target.fillStyle = color; target.fill(terrainPaths.get(key));
+  }
+
+  function auroraLandscape() {
+    // Static terrain and vegetation are painted only when the canvas size changes.
+    const layer = () => { const surface = document.createElement('canvas'); surface.width = width; surface.height = height; return surface; };
+    auroraBackground = layer(); auroraForeground = layer();
+    const back = auroraBackground.getContext('2d'), front = auroraForeground.getContext('2d');
+    mountains(.67, .15, '#29494b', 1, back);
+    back.fillStyle = '#72908c';
+    for (let x = 16; x < width; x += 16) {
+      const y = ridgeSample(x, .67, .15, 1);
+      if (y < ridgeSample(x - 16, .67, .15, 1) && y <= ridgeSample(x + 16, .67, .15, 1)) {
+        back.beginPath(); back.moveTo(x - 12, groundAt(x - 12, .67, .15, 1)); back.lineTo(x, y); back.lineTo(x + 12, groundAt(x + 12, .67, .15, 1)); back.lineTo(x + 3, y + 5); back.lineTo(x - 2, y + 3); back.closePath(); back.fill();
+      }
+    }
+    mountains(.78, .1, '#1b383d', 4, back);
+    back.fillStyle = '#17383e'; back.fillRect(0, Math.round(height * .8), width, height);
+    mountains(.885, .04, '#102a2e', 7, front);
+    const cabinX = Math.round(width * .86), cabinY = Math.round(groundAt(cabinX, .885, .04, 7)) + 2;
+    const tree = (x, size, tone) => {
+      const base = Math.round(groundAt(x, .885, .04, 7)) + 3;
+      front.fillStyle = tone; front.fillRect(x - 1, base - size * .4, 3, size * .4);
+      for (let tier = 0; tier < 3; tier++) {
+        const top = base - size + tier * size * .22, half = size * (.2 + tier * .08);
+        front.beginPath(); front.moveTo(x, top); front.lineTo(x - half, top + size * .48); front.lineTo(x + half, top + size * .48); front.closePath(); front.fill();
+      }
+    };
+    for (let i = 0; i < 23; i++) {
+      const x = Math.round(width * (.42 + i * .027));
+      if (Math.abs(x - cabinX) > 21) tree(x, 18 + i % 5 * 5, i % 3 ? '#0c2529' : '#153438');
+    }
+    for (let i = 0; i < 7; i++) {
+      const x = Math.round(width * (.49 + i * .075)), y = Math.round(groundAt(x, .885, .04, 7));
+      front.fillStyle = '#41605d'; front.fillRect(x, y + 5, 6 + i % 3 * 2, 2);
+      front.fillStyle = '#213e3e'; front.fillRect(x - 2, y + 7, 11, 3);
+    }
+    front.fillStyle = '#4c4c43'; front.fillRect(cabinX - 10, cabinY - 11, 20, 12);
+    front.fillStyle = '#182c2e'; front.beginPath(); front.moveTo(cabinX - 14, cabinY - 11); front.lineTo(cabinX, cabinY - 22); front.lineTo(cabinX + 14, cabinY - 11); front.closePath(); front.fill();
+    front.fillStyle = '#b9ccbf'; front.fillRect(cabinX - 10, cabinY - 12, 20, 2);
+    front.fillStyle = '#dfbb82'; front.fillRect(cabinX - 6, cabinY - 8, 4, 4);
+    front.fillStyle = '#203337'; front.fillRect(cabinX + 3, cabinY - 7, 4, 8);
   }
 
   function draw() {
     const colors = palettes[mode];
-    const sky = ctx.createLinearGradient(0, 0, 0, height);
-    colors.forEach((color, i) => sky.addColorStop(i / (colors.length - 1), color));
-    ctx.fillStyle = sky;
+    if (!skyGradient) {
+      skyGradient = ctx.createLinearGradient(0, 0, 0, height);
+      colors.forEach((color, i) => skyGradient.addColorStop(i / (colors.length - 1), color));
+    }
+    ctx.fillStyle = skyGradient;
     ctx.fillRect(0, 0, width, height);
     if (mode !== 'daybreak') {
       for (const star of stars) {
@@ -44,28 +102,36 @@ export function createScenery(canvas) {
     }
     if (mode === 'aurora') {
       for (let ribbon = 0; ribbon < 3; ribbon++) {
+        const wave = auroraWaves[ribbon] ??= new Float32Array(Math.ceil(width / 8) + 2);
+        for (let i = 0; i < wave.length; i++) {
+          const x = i * 8;
+          wave[i] = height * (.16 + ribbon * .1) + Math.sin(x * .007 + time * .12 + ribbon) * height * .1 + Math.sin(x * .018 - time * .06) * 10;
+        }
         for (let band = 0; band < 12; band++) {
           ctx.globalAlpha = (1 - band / 12) * .075;
           ctx.fillStyle = ['#8ed5af', '#b5b4ee', '#a5dbca'][ribbon];
           ctx.beginPath();
-          for (let x = 0; x <= width + 8; x += 8) {
-            const y = height * (.16 + ribbon * .1) + Math.sin(x * .007 + time * .12 + ribbon) * height * .1 + Math.sin(x * .018 - time * .06) * 10 + band * 4;
-            if (!x) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          for (let i = 0; i < wave.length; i++) {
+            const y = wave[i] + band * 4;
+            if (!i) ctx.moveTo(0, y); else ctx.lineTo(i * 8, y);
           }
-          for (let x = width + 8; x >= 0; x -= 8) {
-            const y = height * (.16 + ribbon * .1) + Math.sin(x * .007 + time * .12 + ribbon) * height * .1 + Math.sin(x * .018 - time * .06) * 10 + band * 4 + 30;
-            ctx.lineTo(x, y);
+          for (let i = wave.length - 1; i >= 0; i--) {
+            ctx.lineTo(i * 8, wave[i] + band * 4 + 30);
           }
           ctx.fill();
         }
       }
       ctx.globalAlpha = 1;
-      mountains(.7, .16, '#29494b', 1); mountains(.83, .13, '#1b383b', 4); mountains(.94, .07, '#122c30', 7);
-      // A few distant pine silhouettes, on the far side of the composition.
+      if (!auroraBackground) auroraLandscape();
+      ctx.drawImage(auroraBackground, 0, 0);
+      // Broken reflections move on the lake; the shoreline stays crisp and still.
       for (let i = 0; i < 14; i++) {
-        const x = width * .58 + i * width * .034, y = height * (.88 + Math.sin(i) * .025), s = 12 + i % 4 * 4;
-        ctx.fillStyle = '#102a2b'; ctx.beginPath(); ctx.moveTo(x, y - s); ctx.lineTo(x - s * .4, y + s * .4); ctx.lineTo(x + s * .4, y + s * .4); ctx.fill(); rect(x - 1, y, 3, s, '#102a2b');
+        const y = height * (.805 + i * .008), x = width * (.63 + Math.sin(i * 1.9 + time * .18) * .06);
+        ctx.globalAlpha = .13 - i * .006;
+        rect(x - i * 2, y, 20 + i * 5, 1, i % 3 ? '#8ed5af' : '#b5b4ee');
       }
+      ctx.globalAlpha = 1;
+      ctx.drawImage(auroraForeground, 0, 0);
     }
     if (mode === 'daybreak') {
       const sx = width * .77, sy = height * .34, radius = Math.min(width * .085, height * .16);
@@ -113,7 +179,9 @@ export function createScenery(canvas) {
     if (!box.width || !box.height) return;
     width = Math.max(240, Math.min(960, Math.round(box.width / 2)));
     height = Math.round(width * box.height / box.width);
-    canvas.width = width; canvas.height = height; ctx.imageSmoothingEnabled = false; draw();
+    canvas.width = width; canvas.height = height; ctx.imageSmoothingEnabled = false;
+    terrainPaths.clear(); auroraBackground = auroraForeground = skyGradient = null; auroraWaves = [];
+    draw();
   }
   new ResizeObserver(resize).observe(canvas);
   resize();
@@ -124,6 +192,6 @@ export function createScenery(canvas) {
       if (active) { last = performance.now(); frame = requestAnimationFrame(tick); }
       else draw();
     },
-    setMode(value) { if (value in palettes) { mode = value; time = 0; draw(); } },
+    setMode(value) { if (value in palettes) { mode = value; time = 0; skyGradient = null; draw(); } },
   };
 }
