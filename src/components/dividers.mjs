@@ -50,15 +50,7 @@ function coast() {
     <path fill="#3b4955" d="m0 78 190-9 170 12 151-4 113 19H0zm1600-5-152-7-148 13-146 17h446z"/>`;
 }
 
-function harbour() {
-  return `<path fill="#9d8472" d="M0 0h1600v96H0z"/><path fill="#536564" d="M0 22h1600v74H0z"/>
-    <path fill="#b3a288" d="M700 35h48v3h-48zm160 18h71v3h-71zm-103 17h65v3h-65z"/>
-    <path fill="#dfc8a2" d="m789 15-26 39h26zm7 9 22 30h-22z"/>
-    <path fill="#3d4148" d="M758 58h65l-9 9h-45zM791 10h4v49h-4z"/>
-    <path fill="#242a2c" d="M0 82h1600v14H0z"/><path fill="#b29677" d="M0 79h1600v3H0z"/>`;
-}
-
-const scenes = { desk, campus, orbit, coast, harbour };
+const scenes = { desk, campus, orbit, coast };
 
 export function chapterDivider(scene) {
   return `<div class="chapter-divider chapter-divider-${scene}" aria-hidden="true"><svg viewBox="0 0 1600 96" preserveAspectRatio="xMidYMid slice" fill="none" shape-rendering="crispEdges">${scenes[scene]()}</svg></div>`;

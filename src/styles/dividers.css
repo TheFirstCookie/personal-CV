@@ -5,9 +5,7 @@
 .chapter-divider-campus { border-top-color: #415d6a; border-bottom-color: #52745a; }
 .chapter-divider-orbit { border-top-color: #52745a; border-bottom-color: #676580; }
 .chapter-divider-coast { border-top-color: #676580; border-bottom-color: #dfb387; }
-.chapter-divider-harbour { height: 44px; border-top-color: #af8667; border-bottom-color: #242a2c; }
 @media (max-width: 760px) {
   .chapter-divider { height: 64px; }
-  .chapter-divider-harbour { height: 40px; }
 }
 @media print { .chapter-divider { display: none; } }

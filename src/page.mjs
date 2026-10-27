@@ -33,7 +33,6 @@ export function page(cv) {
     <a class="header-cv" href="${e(cv.pdf)}" download>CV <span aria-hidden="true">↓</span><span class="sr-only"> — download PDF</span></a>
   </div></header>
   <main id="main">${hero(cv)}${projects(cv)}${chapterDivider('desk')}${about(cv)}${chapterDivider('campus')}${education(cv)}${chapterDivider('orbit')}${skills(cv)}${chapterDivider('coast')}${contact(cv)}</main>
-  ${chapterDivider('harbour')}
   <footer class="site-footer container"><a class="footer-brand" href="#home">dm<span>.</span></a><p>© ${new Date().getFullYear()} ${e(cv.name)}</p><a class="back-top" href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body>
 </html>`;
