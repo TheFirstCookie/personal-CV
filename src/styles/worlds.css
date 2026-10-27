@@ -7,6 +7,7 @@ nav a[aria-current="location"] { color: var(--accent); text-decoration: underlin
 .world-canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
 .hero-city { position: absolute; inset: 0; }
 .hero-city > .night-city { width: 100%; height: 100%; }
+.city-moon { position: absolute; top: 100px; right: 12%; width: clamp(56px, 7vw, 112px); height: auto; }
 .hero:not([data-sky="city"]) .hero-city { visibility: hidden; }
 .hero[data-sky="city"] :is(.world-canvas, .world-scrim) { visibility: hidden; }
 .world-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, #0e1423eb, #121a29b3 30%, #141a2c33 58%, transparent 80%), linear-gradient(0deg, #111b2c, transparent 24%); }
@@ -107,6 +108,7 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   .scene-controls { gap: 12px; }
 }
 @media (max-width: 760px) {
+  .city-moon { display: none; }
   .hero-grid { display: block; min-height: 670px; padding-block: 115px 65px; }
   .hero-copy { width: 100%; max-width: 510px; }
   .world-scrim { background: linear-gradient(90deg, #0e1423ed, #121a29b3 48%, #141a2c22), linear-gradient(#121a2988, transparent); }
@@ -131,6 +133,37 @@ html[data-motion="on"][data-page-visible="true"] .hero:not([data-sky="city"]) .n
   .bio-window-content { padding: 20px 17px; } .bio-window h2 { font-size: 34px; }
   .terminal-prompt { font-size: 8px; } .skills-grid > div { padding: 18px 16px 6px; }
   .contact-links { padding: 20px 18px; } .social-link small { font-size: 11px; margin-left: 6px; }
+}
+@media (max-width: 540px) {
+  body { font-size: 16px; }
+  h2 { font-size: clamp(32px, 8vw, 40px); }
+  .hero-grid { min-height: 0; padding-block: 96px 40px; }
+  .hero h1 { font-size: clamp(60px, 15.5vw, 84px); }
+  .hero .availability { font-size: 11px; margin-bottom: 23px; }
+  .hero .hero-role { font-size: 16px; margin-top: 23px; }
+  .hero .hero-intro { font-size: 18px; line-height: 1.6; margin-top: 16px; }
+  .hero .actions { margin-top: 23px; }
+  .button { min-height: 44px; padding: 10px 15px; font-size: 11px; gap: 18px; }
+  .button span { font-size: 16px; }
+  .world-name { font-size: 25px; }
+  .world-coordinates { font-size: 9px; }
+  .signal-track > span { font-size: 20px; }
+  .section, .about-section { padding-block: 48px; }
+  .project-art { height: clamp(230px, 60vw, 290px); }
+  .cd-assembly { width: 56%; }
+  .cover-title { font-size: 25px; }
+  .project-details { padding-top: 21px; }
+  .project-details h3 { font-size: 28px; }
+  .project-grid { gap: 36px; }
+  .bio-window h2 { font-size: 32px; }
+  .bio-note { padding-block: 27px 23px; }
+  .note-heading { font-size: 32px; margin-bottom: 23px; }
+  .bio-note .facts { font-size: 16px; }
+  .bio-note .facts > div { padding-block: 14px; }
+  .bio-note > a { font-size: 14px; padding-top: 20px; }
+  .skill-list li, .language-list li { min-height: 54px; gap: 14px; font-size: 14px; }
+  .contact-section { padding-block: 48px 110px; }
+  .contact-grid h2 { font-size: 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .ambient { animation: none !important; } .hero-city { transition: none; }

@@ -24,8 +24,6 @@ export function nightCity() {
     <defs><linearGradient id="night-sky" x1="0" y1="0" x2="0" y2="800" gradientUnits="userSpaceOnUse"><stop stop-color="#101a2c"/><stop offset=".55" stop-color="#202c43"/><stop offset="1" stop-color="#3c3d50"/></linearGradient><clipPath id="city-water-clip"><path d="M0 708h1600v83H0z"/></clipPath></defs>
     <path fill="url(#night-sky)" d="M0 0h1600v800H0z"/>
     <g class="city-stars" fill="#d3cdbb">${Array.from({ length: 52 }, (_, i) => `<path opacity="${i % 3 ? '.4' : '.7'}" d="M${(i * 197 + 47) % 1590} ${30 + (i * 53) % 380}h2v2h-2z"/>`).join('')}</g>
-    <path fill="#e8c99b" d="M1320 94h42v8h18v10h12v18h8v42h-8v18h-12v10h-18v8h-42v-8h-18v-10h-12v-18h-8v-42h8v-18h12v-10h18z"/>
-    <path fill="#c2a989" d="M1300 150h16v12h-16zm46-38h14v8h-14zm8 54h22v8h-22z"/>
     <g class="city-cloud city-cloud-far" fill="#647085" opacity=".22"><path d="M800 168h58v-9h70v9h44v8H800zM1190 242h45v-10h98v10h80v8h-223zM230 99h45v-8h78v8h40v7H230z"/></g>
     <g class="city-cloud city-cloud-near" fill="#7b7b8d" opacity=".22"><path d="M1258 150h55v-8h72v8h70v8h-197zM650 285h40v-9h75v9h55v8H650z"/></g>
     ${distant}
@@ -49,5 +47,7 @@ export function nightCity() {
       <path fill="#62716a" d="M1120 675h33v3h-33zm2 6h29v3h-29z"/><path fill="#394f53" d="M1123 678h2v9h-2zm24 0h2v9h-2z"/>
     </g>
     <path fill="#162735" d="M0 791h1600v9H0z"/>
-  </svg>`;
+  </svg><svg class="city-moon" xmlns="http://www.w3.org/2000/svg" viewBox="1280 80 130 140" fill="none" aria-hidden="true" shape-rendering="crispEdges">    <path fill="#e8c99b" d="M1320 94h42v8h18v10h12v18h8v42h-8v18h-12v10h-18v8h-42v-8h-18v-10h-12v-18h-8v-42h8v-18h12v-10h18z"/>
+    <path fill="#c2a989" d="M1300 150h16v12h-16zm46-38h14v8h-14zm8 54h22v8h-22z"/>
+</svg>`;
 }

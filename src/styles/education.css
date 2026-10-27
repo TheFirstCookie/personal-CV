@@ -65,6 +65,16 @@
   .training-list { grid-template-columns: 1fr; gap: 0; }
   .training-list > li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
 }
+@media (max-width: 540px) {
+  .education-section { padding-top: 48px; }
+  .education-section .section-heading { margin-bottom: 28px; }
+  .study-subject { font-size: clamp(38px, 10vw, 48px); }
+  .university-feature h3 { font-size: 21px; }
+  .study-perspective { font-size: 20px; margin-top: 24px; }
+  .study-description { font-size: 15px; }
+  .study-layout { gap: 32px; }
+  .study-footnote { margin-top: 80px; }
+}
 @media print {
   .campus-world, .study-footnote, .education-chapter { display: none; }
   .education-section { color: #111; }

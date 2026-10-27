@@ -32,13 +32,13 @@ nav a:hover, .header-cv:hover { color: var(--accent); }
   html { scroll-padding-top: 170px; }
 }
 @media (max-width: 540px) {
-  .header-inner { gap: 8px 12px; padding-top: 12px; padding-bottom: 6px; }
-  .brand { font-size: 14px; gap: 10px; }
-  .brand-mark { font-size: 38px; }
+  .header-inner { min-height: 0; gap: 4px 12px; padding-top: 8px; padding-bottom: 4px; }
+  .brand { font-size: 13px; gap: 8px; }
+  .brand-mark { font-size: 32px; }
   nav { gap: 3px; }
-  nav a { font-size: 14px; min-height: 44px; }
+  nav a { font-size: 13px; min-height: 44px; }
   nav a span { display: none; }
-  .header-cv { min-width: 74px; min-height: 44px; font-size: 15px; gap: 12px; }
+  .header-cv { min-width: 68px; min-height: 44px; font-size: 14px; gap: 10px; }
   .section-heading { align-items: start; flex-direction: column; gap: 14px; }
   .site-footer { gap: 12px; } .site-footer p, .back-top { font-size: 9px; }
 }
