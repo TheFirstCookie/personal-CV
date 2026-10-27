@@ -7,7 +7,7 @@ import { skills } from './sections/skills.mjs';
 import { contact } from './sections/contact.mjs';
 
 export function page(cv) {
-  const description = `${cv.name} — developer and Information Technology student at the Technical University of Moldova. Based in Chișinău. Open to part-time IT opportunities.`;
+  const description = `${cv.name} — developer and Information Technology student at the Technical University of Moldova. Based in Chișinău. Open to developer and IT opportunities, with a preference for remote work.`;
   return `<!doctype html>
 <html lang="en">
 <head>

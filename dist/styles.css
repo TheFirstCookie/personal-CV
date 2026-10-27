@@ -86,13 +86,13 @@ nav a:hover, .header-cv:hover { color: var(--accent); }
 
 .hero { padding-top: 65px; border-bottom: 1px solid var(--line); }
 .hero-grid { display: grid; grid-template-columns: 1.13fr 1fr; gap: 65px; align-items: center; }
-.availability { display: flex; align-items: center; gap: 10px; color: var(--lime); letter-spacing: .07em; font-size: 10px; margin-bottom: 29px; }
+.availability { display: flex; align-items: center; gap: 10px; color: var(--lime); letter-spacing: .04em; font-size: clamp(12px, 1.2vw, 14px); margin-bottom: 29px; }
 h1 { font-family: var(--pixel); text-transform: uppercase; font-size: clamp(80px, 8.8vw, 128px); line-height: .85; letter-spacing: -.025em; }
 h1 > span { display: block; color: var(--accent); }
 .name-period { color: var(--text); }
-.hero-role { font-family: var(--mono); font-size: 16px; margin-top: 29px; }
+.hero-role { font-family: var(--mono); font-size: clamp(18px, 1.8vw, 22px); margin-top: 29px; }
 .hero-role > span { color: var(--accent); margin-inline: 10px; }
-.hero-intro { max-width: 430px; margin-top: 16px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+.hero-intro { max-width: 540px; margin-top: 20px; color: var(--muted); font-size: clamp(20px, 2vw, 24px); line-height: 1.65; }
 .hero .actions { margin-top: 28px; }
 .hero-visual { border: 1px solid #434336; background: #1d201b; box-shadow: 7px 7px 0 #080a08; }
 .window-top, .window-bottom { display: flex; justify-content: space-between; align-items: center; padding: 11px 15px; font-family: var(--mono); font-size: 9px; letter-spacing: .07em; color: #b1b19b; }
@@ -174,8 +174,8 @@ h1 > span { display: block; color: var(--accent); }
   .email-link > span:last-child { font-size: clamp(16px, 4.5vw, 23px); }
 }
 @media (max-width: 380px) {
-  .hero-role { font-size: 14px; } .hero-role > span { margin-inline: 5px; }
-  .availability { font-size: 9px; letter-spacing: 0; }
+  .hero-role { font-size: 18px; } .hero-role > span { margin-inline: 5px; }
+  .availability { font-size: 12px; letter-spacing: 0; }
   .button { padding-inline: 14px; gap: 13px; font-size: 11px; }
   .hero-foot { font-size: 9px; gap: 20px; }
   .window-bottom { font-size: 8px; }

@@ -6,7 +6,7 @@ export function hero(cv) {
     <div class="hero-world" aria-hidden="true"><canvas class="world-canvas" width="960" height="480"></canvas><div class="hero-city">${nightCity()}</div><div class="world-scrim"></div></div>
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow availability"><span class="status-dot" aria-hidden="true"></span> Open to part-time opportunities</p>
+        <p class="eyebrow availability"><span class="status-dot" aria-hidden="true"></span> Open to opportunities · Remote preferred</p>
         <h1 id="hero-title">Daniel<span>Mihaila<span class="name-period">.</span></span></h1>
         <p class="hero-role">${e(cv.role)} <span aria-hidden="true">/</span> IT student</p>
         <p class="hero-intro">${e(cv.introduction)}</p>
