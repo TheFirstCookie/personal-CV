@@ -1,0 +1,76 @@
+/* A university-led chapter, with a landscape that extends to the page edges. */
+.education-section { position: relative; isolation: isolate; overflow: hidden; background: #142f29; color: #edf0dc; padding-block: 90px 30px; }
+.education-section .eyebrow { color: #a8bfa7; }
+.education-section .accent { color: #d2df9d; }
+.education-content { position: relative; }
+.education-section .section-heading { padding-bottom: 32px; margin-bottom: 54px; border-bottom: 1px solid #a4c39d40; }
+.education-chapter { font-family: var(--mono); font-size: 11px; color: #afc3aa; }
+.study-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, .38fr); gap: clamp(45px, 7vw, 120px); align-items: start; }
+.university-feature { min-width: 0; padding-left: 28px; border-left: 3px solid #c9d99b; }
+.study-status { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font-family: var(--mono); font-size: 12px; color: #d2dfb4; }
+.study-location { margin-left: auto; color: #a5bda9; font-size: 11px; }
+.study-subject { font-family: var(--pixel); font-size: clamp(49px, 5.7vw, 88px); line-height: .98; letter-spacing: -.025em; color: #d9e8ac; margin-block: 36px 20px; max-width: 800px; }
+.university-feature h3 { font-size: clamp(23px, 2.4vw, 35px); font-weight: 500; letter-spacing: -.025em; max-width: 740px; }
+.study-faculty { font-size: 15px; color: #afc6b5; max-width: 550px; margin-top: 12px; }
+.study-perspective { font-size: clamp(21px, 2.2vw, 30px); line-height: 1.45; margin-top: 38px; }
+.study-perspective > span { color: #bed39e; }
+.study-description { font-size: 16px; line-height: 1.85; color: #b8cbbc; max-width: 580px; margin-top: 19px; }
+.study-link { display: inline-flex; align-items: center; gap: 32px; font-family: var(--mono); font-size: 12px; padding-block: 15px; margin-top: 18px; text-decoration: none; border-bottom: 1px solid #b4ca9470; color: #d9e8ac; }
+.study-link:hover { color: white; border-color: currentColor; }
+.study-link > span { font-size: 22px; }
+.training-notes { padding: 27px 0 0 26px; border-left: 1px solid #a4c39d40; }
+.training-notes .overline { color: #a4bd9d; font-size: 10px; }
+.training-notes h3 { font-family: var(--pixel); font-size: 32px; font-weight: 400; margin-top: 10px; }
+.training-notes h3 > span { color: #d8c38e; }
+.training-intro { color: #afc3b0; font-size: 13px; margin-top: 12px; max-width: 260px; }
+.training-list { list-style: none; margin: 26px 0 0; padding: 0; }
+.training-list > li { display: grid; grid-template-columns: 42px minmax(0, 1fr); gap: 14px; padding-block: 21px; border-top: 1px solid #a4c39d30; }
+.training-year { color: #d8c38e; font-family: var(--mono); font-size: 11px; padding-top: 3px; }
+.training-list h4 { font-size: 16px; font-weight: 500; }
+.training-subtitle, .training-provider { color: #afc3b0; font-size: 12px; margin-top: 6px; }
+.training-completed { display: block; font-family: var(--mono); font-size: 9px; color: #b6c99f; margin-top: 13px; }
+.training-completed > span { margin-left: 8px; }
+.study-footnote { display: flex; align-items: center; gap: 28px; color: #a2b99c; font-family: var(--mono); font-size: 10px; padding-top: 24px; margin-top: 155px; border-top: 1px solid #a4c39d30; }
+.study-footnote > span:last-child { font-family: var(--pixel); font-size: 28px; margin-left: auto; color: #d2df9d; }
+.campus-world { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.campus-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 65%, #6b87532e, transparent 60%), radial-gradient(ellipse at 5% 0, #3f685d55, transparent 65%); }
+.campus-landscape { position: absolute; bottom: 0; width: 100%; height: 390px; opacity: .65; mask-image: linear-gradient(transparent, #000 35%); }
+.campus-mist { position: absolute; inset: 30% -15% -10%; background: radial-gradient(ellipse at 70% 70%, #b5cfa51a, transparent 45%), radial-gradient(ellipse at 20% 55%, #a4c7b00c, transparent 40%); animation: campus-drift 24s ease-in-out infinite alternate; }
+.campus-fireflies { position: absolute; inset: 40% 0 0; }
+.campus-fireflies i { position: absolute; left: var(--x); top: var(--y); width: 3px; height: 3px; background: #e1e5a5; opacity: .3; box-shadow: 0 0 9px 3px #d7df8b30; animation: firefly-drift var(--duration) ease-in-out var(--delay) infinite alternate; }
+.campus-windows { animation: campus-lights 8s ease-in-out infinite alternate; }
+@keyframes campus-drift { to { transform: translate(5%, -3%); opacity: .5; } }
+@keyframes firefly-drift { 0% { transform: translate(0, 0); opacity: .1; } 55% { opacity: .7; } 100% { transform: translate(15px, -26px); opacity: .15; } }
+@keyframes campus-lights { to { opacity: .25; } }
+@media (max-width: 1050px) {
+  .study-layout { grid-template-columns: minmax(0, 1fr) 260px; gap: 40px; }
+  .university-feature { padding-left: 22px; }
+  .study-location { width: 100%; margin: 0 0 0 17px; }
+}
+@media (max-width: 760px) {
+  .education-section { padding-top: 60px; }
+  .education-section .section-heading { align-items: start; flex-direction: column; gap: 16px; margin-bottom: 35px; }
+  .study-layout { grid-template-columns: 1fr; gap: 42px; }
+  .university-feature { padding-left: 20px; }
+  .study-subject { font-size: clamp(45px, 10vw, 70px); margin-top: 26px; }
+  .study-perspective { margin-top: 28px; }
+  .training-notes { padding: 26px 0 0; border-left: 0; border-top: 1px solid #a4c39d40; }
+  .training-list { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 20px; }
+  .training-list > li { grid-template-columns: 1fr; gap: 9px; }
+  .study-footnote { margin-top: 100px; gap: 18px; flex-wrap: wrap; }
+  .study-coordinate { display: none; }
+  .campus-landscape { width: 170%; max-width: none; right: -30%; height: 290px; }
+}
+@media (max-width: 380px) {
+  .training-list { grid-template-columns: 1fr; gap: 0; }
+  .training-list > li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+}
+@media print {
+  .campus-world, .study-footnote, .education-chapter { display: none; }
+  .education-section { color: #111; }
+  .study-layout { grid-template-columns: 1.6fr 1fr; gap: 25px; }
+  .university-feature, .training-notes { border-color: #aaa; padding-left: 15px; }
+  .study-subject { font-size: 34px; margin-top: 18px; }
+  .study-perspective { margin-top: 18px; font-size: 18px; }
+  .education-section :is(.study-subject, .study-status, .study-faculty, .study-perspective > span, .study-description, .study-link, .training-intro, .training-provider, .training-year, .training-subtitle, .training-completed, .overline) { color: #333; }
+}

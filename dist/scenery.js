@@ -22,7 +22,10 @@ export function createScenery(canvas) {
 
   function draw() {
     const colors = palettes[mode];
-    for (let i = 0; i < colors.length; i++) rect(0, height * i / colors.length, width, height / colors.length + 1, colors[i]);
+    const sky = ctx.createLinearGradient(0, 0, 0, height);
+    colors.forEach((color, i) => sky.addColorStop(i / (colors.length - 1), color));
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, width, height);
     if (mode !== 'daybreak') {
       for (const star of stars) {
         ctx.globalAlpha = .35 + (Math.sin(time * .6 + star.phase) + 1) * .25;

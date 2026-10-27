@@ -18,6 +18,6 @@
   --pixel: Tiny5, 'Courier New', monospace;
   --body: 'Segoe UI', Arial, sans-serif;
   --mono: 'Cascadia Code', Consolas, 'Liberation Mono', monospace;
-  --max-width: 1200px;
-  --gutter: clamp(20px, 5vw, 72px);
+  --max-width: 1680px;
+  --gutter: clamp(20px, 3vw, 64px);
 }
